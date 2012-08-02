@@ -23,5 +23,10 @@ namespace OpenUO_WPF_Fiddler
 			
 			// Insert code required on object creation below this point.
 		}
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 	}
 }

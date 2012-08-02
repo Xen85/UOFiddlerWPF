@@ -98,12 +98,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UoFiddler\Ultima\Ultima.csproj">
-      <Project>{E08CFBE4-E013-44EE-8829-426D05BC083F}</Project>
-      <Name>Ultima</Name>
+    <ProjectReference Include="..\MiscUtil\MiscUtil.csproj">
+      <Project>{4FC1D5F4-661F-48DC-B397-4CDCB7D61ABE}</Project>
+      <Name>MiscUtil</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,12 +1,16 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="2345" fromTop="47" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/f:MainWindow.xaml.cs" caret="0" fromTop="0" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/f:MakeMapSDK.cs" caret="9255" fromTop="15" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="12000" fromTop="0" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml.cs" caret="731" fromTop="15" />
     </RecentFiles>
     <RecentEdits>
-      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="25570" fromTop="8" />
-      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="22681" fromTop="8" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="25615" fromTop="8" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="22726" fromTop="8" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="5814" fromTop="47" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml.cs" caret="746" fromTop="16" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>

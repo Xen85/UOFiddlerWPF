@@ -166,7 +166,7 @@
 					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.EdgeNorthEast.List, ElementName=DataGridItemCoastsAll}" Margin="290.666,530.373,0,0" x:Name="dataGrid9" VerticalAlignment="Top" Width="137" />
 					<DataGrid AutoGenerateColumns="True" Height="101" ItemsSource="{Binding SelectedItem.Ground.EdgeSouthEast.List, ElementName=DataGridItemCoastsAll}" Margin="0,530.373,246.333,0" x:Name="dataGrid10" VerticalAlignment="Top" HorizontalAlignment="Right" Width="146"/>
 					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.EdgeSouthWest.List, ElementName=DataGridItemCoastsAll}" Margin="846.333,530.373,0,0" x:Name="dataGrid11" VerticalAlignment="Top" Width="137" />
-					<ComboBox HorizontalAlignment="Left" Margin="8,114.039,0,0" VerticalAlignment="Top" Width="297.334" Height="28.627">
+					<ComboBox HorizontalAlignment="Left" Margin="8,114.039,0,0" VerticalAlignment="Top" Width="297.334" Height="28.627" SelectionChanged="ComboBox_SelectionChanged">
 						<ComboBoxItem Content="See Ground&#xd;&#xa;"/>
 						<ComboBoxItem Content="See Coast&#xd;&#xa;"/>
 					</ComboBox>

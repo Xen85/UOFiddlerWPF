@@ -77,9 +77,17 @@
     <Compile Include="TilesCategorySDKModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UoFiddler\Ultima\Ultima.csproj">
-      <Project>{E08CFBE4-E013-44EE-8829-426D05BC083F}</Project>
-      <Name>Ultima</Name>
+    <ProjectReference Include="..\OpenUO.Core\OpenUO.Core.csproj">
+      <Project>{25B50E34-555E-497E-901E-628494B0C954}</Project>
+      <Name>OpenUO.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenUO.Ultima.PresentationFramework\OpenUO.Ultima.PresentationFramework.csproj">
+      <Project>{8C5BCAAD-5415-4FF7-B677-6BF398E5465D}</Project>
+      <Name>OpenUO.Ultima.PresentationFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenUO.Ultima\OpenUO.Ultima.csproj">
+      <Project>{911C0A0F-1A08-4DA0-B103-EB24D9E19402}</Project>
+      <Name>OpenUO.Ultima</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
