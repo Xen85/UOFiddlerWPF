@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F25DC15-7C8B-4C57-8C31-E33DEE517E7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenUO.MapMaker</RootNamespace>
+    <AssemblyName>OpenUO.MapMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LandSets\LandSet.cs" />
+    <Compile Include="MapMaking\BitmapReader.cs" />
+    <Compile Include="Elements\BaseTypes\Base\Id.cs" />
+    <Compile Include="Elements\BaseTypes\Base\IndexId.cs" />
+    <Compile Include="Elements\BaseTypes\Base\ItemID.cs" />
+    <Compile Include="Elements\BaseTypes\Base\TextureID.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\ItemList.cs" />
+    <Compile Include="Elements\ColorArea\Area\Area.cs" />
+    <Compile Include="Elements\ColorArea\Area\AreaCoast.cs" />
+    <Compile Include="Elements\ColorArea\ColorAreas.cs" />
+    <Compile Include="Elements\ColorArea\Mountains\ColorMountains.cs" />
+    <Compile Include="Elements\ColorArea\MountainsAreas.cs" />
+    <Compile Include="Elements\ColorArea\Mountains\MountainsCircle.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Enum\BorderDirection.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Enum\LinearDirection.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Enum\LineType.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\ListLine.cs" />
+    <Compile Include="Elements\BaseTypes\ComplexTypes\Transition.cs" />
+    <Compile Include="Elements\Items\ItemsAll.cs" />
+    <Compile Include="Elements\Items\CoastsAll.cs" />
+    <Compile Include="Elements\Items\ItemCoast\ItemsCoast.cs" />
+    <Compile Include="Elements\Items\ItemCoast\ItemsCoasts.cs" />
+    <Compile Include="Elements\Items\ItemsSmooth\ItemsSmooth.cs" />
+    <Compile Include="Elements\Items\ItemText\Item.cs" />
+    <Compile Include="Elements\Items\ItemText\ItemGroup.cs" />
+    <Compile Include="Elements\Items\ItemText\Items.cs" />
+    <Compile Include="Elements\Items\SmoothsAll.cs" />
+    <Compile Include="Elements\Textures\Cliffs.cs" />
+    <Compile Include="Elements\Textures\Enum\CliffDirections.cs" />
+    <Compile Include="Elements\Textures\SmoothTextures.cs" />
+    <Compile Include="Elements\Textures\TextureArea.cs" />
+    <Compile Include="Elements\Textures\TextureCliff\CliffDirections.cs" />
+    <Compile Include="Elements\Textures\TextureCliff\TextureCliff.cs" />
+    <Compile Include="Elements\Textures\TextureArea\Textures.cs" />
+    <Compile Include="Elements\Textures\TextureSmooth\TextureSmooth.cs" />
+    <Compile Include="Elements\Direction.cs" />
+    <Compile Include="MapMaking\Globals.cs" />
+    <Compile Include="MapMaking\MapMaker.cs" />
+    <Compile Include="MakeMapSDK.cs" />
+    <Compile Include="TextFileReading\Factories2\Colors\FactoryCoast.cs" />
+    <Compile Include="TextFileReading\Factories2\Colors\FactoryColorArea.cs" />
+    <Compile Include="TextFileReading\Factories2\Colors\FactoryMountains.cs" />
+    <Compile Include="TextFileReading\Factories2\Items\FactoryItemCoasts.cs" />
+    <Compile Include="TextFileReading\Factories2\Items\FactoryItems.cs" />
+    <Compile Include="TextFileReading\Factories2\Items\FactorySmoothItems.cs" />
+    <Compile Include="TextFileReading\Factories2\Textures\FactoryCliff.cs" />
+    <Compile Include="TextFileReading\Factories2\Textures\FactoryTextureArea.cs" />
+    <Compile Include="TextFileReading\Factories2\Textures\FactoryTextureSmooth.cs" />
+    <Compile Include="TextFileReading\Factories2\TransitionFactory.cs" />
+    <Compile Include="TextFileReading\Factory.cs" />
+    <Compile Include="Elements\EdgeDirection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UoFiddler\Ultima\Ultima.csproj">
+      <Project>{E08CFBE4-E013-44EE-8829-426D05BC083F}</Project>
+      <Name>Ultima</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

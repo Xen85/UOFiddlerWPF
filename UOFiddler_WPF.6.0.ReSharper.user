@@ -1,0 +1,1834 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="2345" fromTop="47" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="25570" fromTop="8" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="22681" fromTop="8" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="5814" fromTop="47" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="public" priority="11916" />
+      <Item value="int" priority="5096" />
+      <Item value="struct" priority="124" />
+      <Item value="List" priority="4779" />
+      <Item value="IList" priority="767" />
+      <Item value="Styles" priority="288" />
+      <Item value="enum" priority="372" />
+      <Item value="PositionWalls`0" priority="181" />
+      <Item value="Position" priority="323" />
+      <Item value="using" priority="1624" />
+      <Item value="TilesInfo" priority="1136" />
+      <Item value="Components.Enums" priority="53" />
+      <Item value="Tile`0" priority="1274" />
+      <Item value="PositionWalls" priority="91" />
+      <Item value="PositionWallWindow`0" priority="95" />
+      <Item value="TileWall`0" priority="456" />
+      <Item value="Walls" priority="799" />
+      <Item value="WallPos" priority="255" />
+      <Item value="None" priority="271" />
+      <Item value="this" priority="351" />
+      <Item value="PositionW" priority="159" />
+      <Item value="Components" priority="618" />
+      <Item value="Enums" priority="274" />
+      <Item value="PositionStairs`0" priority="95" />
+      <Item value="PositionStairs" priority="32" />
+      <Item value="Boolean`0" priority="319" />
+      <Item value="TileStairs`0" priority="63" />
+      <Item value="Base64FormattingOptions`0" priority="191" />
+      <Item value="base" priority="797" />
+      <Item value="IsMulti" priority="63" />
+      <Item value="false" priority="447" />
+      <Item value="PositionStair" priority="58" />
+      <Item value="multi" priority="129" />
+      <Item value="pos" priority="127" />
+      <Item value="PositionRoof`0" priority="191" />
+      <Item value="PositionRoof" priority="32" />
+      <Item value="TileRoof`0" priority="518" />
+      <Item value="PosRoof" priority="95" />
+      <Item value="class" priority="125" />
+      <Item value="Style`0" priority="95" />
+      <Item value="Id" priority="976" />
+      <Item value="Tiles" priority="379" />
+      <Item value="new" priority="11091" />
+      <Item value="List&lt;Tile&gt;" priority="260" />
+      <Item value="number" priority="224" />
+      <Item value="Category`0" priority="63" />
+      <Item value="List&lt;Style&gt;" priority="29" />
+      <Item value="id" priority="867" />
+      <Item value="Install" priority="193" />
+      <Item value="string" priority="2548" />
+      <Item value="OpenUO" priority="777" />
+      <Item value="Ultima" priority="269" />
+      <Item value="Original" priority="159" />
+      <Item value="Tile" priority="974" />
+      <Item value="Name" priority="802" />
+      <Item value="UriHostNameType`0" priority="127" />
+      <Item value="String`0" priority="254" />
+      <Item value="void" priority="1534" />
+      <Item value="short" priority="159" />
+      <Item value="return" priority="5935" />
+      <Item value="_Id" priority="31" />
+      <Item value="changeId`0" priority="31" />
+      <Item value="value" priority="1107" />
+      <Item value="#endif" priority="223" />
+      <Item value="#endregion" priority="94" />
+      <Item value="static" priority="411" />
+      <Item value="SkillCategory`0" priority="95" />
+      <Item value="Categories" priority="1181" />
+      <Item value="private" priority="1215" />
+      <Item value="TileStyle`0" priority="803" />
+      <Item value="_myStyle" priority="95" />
+      <Item value="style" priority="1853" />
+      <Item value="TilesCategorySDKModule`0" priority="462" />
+      <Item value="Factories" priority="1138" />
+      <Item value="Floors`0" priority="58" />
+      <Item value="location" priority="2528" />
+      <Item value="protected" priority="351" />
+      <Item value="InstallLocation`0" priority="411" />
+      <Item value="_Install" priority="64" />
+      <Item value="Factory`0" priority="921" />
+      <Item value="ASCIIFontFactory`0" priority="31" />
+      <Item value="install" priority="63" />
+      <Item value="AppDomain`0" priority="31" />
+      <Item value="categories" priority="355" />
+      <Item value="_categories" priority="223" />
+      <Item value="List&lt;TileCategory&gt;" priority="319" />
+      <Item value="TileCategory`0" priority="2121" />
+      <Item value="FileIndex`0" priority="31" />
+      <Item value="System" priority="1029" />
+      <Item value="IO" priority="26" />
+      <Item value="File`0" priority="127" />
+      <Item value="var" priority="7378" />
+      <Item value="txtFileLines" priority="191" />
+      <Item value="for" priority="735" />
+      <Item value="Length" priority="782" />
+      <Item value="TileCategory" priority="405" />
+      <Item value="category" priority="1308" />
+      <Item value="char" priority="341" />
+      <Item value="readonly" priority="127" />
+      <Item value="infos" priority="223" />
+      <Item value="TypeNames" priority="31" />
+      <Item value="TileStyle" priority="348" />
+      <Item value="StaticTile`0" priority="95" />
+      <Item value="Int32`0" priority="279" />
+      <Item value="if" priority="8659" />
+      <Item value="k" priority="607" />
+      <Item value="Last`1" priority="377" />
+      <Item value="PositionFloors" priority="32" />
+      <Item value="TileFloor`0" priority="255" />
+      <Item value="PositionFloor" priority="63" />
+      <Item value="PositionFloors`0" priority="63" />
+      <Item value="positionFloors" priority="32" />
+      <Item value="tile" priority="1821" />
+      <Item value="switch" priority="287" />
+      <Item value="case" priority="1279" />
+      <Item value="F1" priority="16" />
+      <Item value="break" priority="575" />
+      <Item value="F3" priority="16" />
+      <Item value="Type`0" priority="311" />
+      <Item value="type" priority="223" />
+      <Item value="Floor" priority="16" />
+      <Item value="TileDoor`0" priority="31" />
+      <Item value="Doors" priority="16" />
+      <Item value="FileStyleUriParser`0" priority="255" />
+      <Item value="textlines" priority="95" />
+      <Item value="separator" priority="639" />
+      <Item value="List&lt;TileStyle&gt;" priority="86" />
+      <Item value="styles" priority="127" />
+      <Item value="override" priority="991" />
+      <Item value="j" priority="255" />
+      <Item value="TileWall" priority="116" />
+      <Item value="South" priority="99" />
+      <Item value="Post" priority="48" />
+      <Item value="ListBox_Folders" priority="90" />
+      <Item value="InstallationLocator`0" priority="203" />
+      <Item value="null" priority="2037" />
+      <Item value="is" priority="189" />
+      <Item value="ListBox_Categories" priority="63" />
+      <Item value="factory" priority="538" />
+      <Item value="Map`0" priority="26" />
+      <Item value="ListBox_InstallList" priority="90" />
+      <Item value="OpenUO.Ultima" priority="30" />
+      <Item value="ListBox`0" priority="127" />
+      <Item value="as" priority="2064" />
+      <Item value="TreeViewElements" priority="31" />
+      <Item value="Dictionary" priority="63" />
+      <Item value="_location" priority="127" />
+      <Item value="const" priority="223" />
+      <Item value="ContextStaticAttribute`0" priority="63" />
+      <Item value="foreach" priority="3572" />
+      <Item value="lines" priority="191" />
+      <Item value="Positions" priority="159" />
+      <Item value="Dictionary&lt;PositionTiles,int&gt;" priority="28" />
+      <Item value="resolve" priority="30" />
+      <Item value="PositionTiles`0" priority="288" />
+      <Item value="East" priority="65" />
+      <Item value="corner" priority="31" />
+      <Item value="default" priority="191" />
+      <Item value="GetPositionTile`0" priority="31" />
+      <Item value="info" priority="127" />
+      <Item value="supp" priority="96" />
+      <Item value="SuppInfo`0" priority="31" />
+      <Item value="SuppInfo" priority="28" />
+      <Item value="Queue" priority="95" />
+      <Item value="from" priority="1247" />
+      <Item value="KeyNotFoundException`0" priority="63" />
+      <Item value="Linq" priority="135" />
+      <Item value="where" priority="1055" />
+      <Item value="select" priority="895" />
+      <Item value="tileCategory" priority="764" />
+      <Item value="Style" priority="94" />
+      <Item value="out" priority="95" />
+      <Item value="else" priority="1022" />
+      <Item value="Pos" priority="95" />
+      <Item value="Walls`0" priority="31" />
+      <Item value="Misc`0" priority="31" />
+      <Item value="Roofs`0" priority="31" />
+      <Item value="Roofs" priority="415" />
+      <Item value="Misc" priority="392" />
+      <Item value="Floors" priority="284" />
+      <Item value="IConvertible`0" priority="63" />
+      <Item value="IMultiValueConverter`0" priority="31" />
+      <Item value="IValueConverter`0" priority="31" />
+      <Item value="values" priority="31" />
+      <Item value="TxtFile`0" priority="63" />
+      <Item value="MultiTile`0" priority="246" />
+      <Item value="Multi" priority="61" />
+      <Item value="Multi`0" priority="117" />
+      <Item value="MultiTiles" priority="218" />
+      <Item value="List&lt;MultiTile&gt;" priority="57" />
+      <Item value="CrossAppDomainDelegate`0" priority="63" />
+      <Item value="MultiTile" priority="28" />
+      <Item value="OffsetX" priority="32" />
+      <Item value="x" priority="3136" />
+      <Item value="OffsetY" priority="32" />
+      <Item value="y" priority="1506" />
+      <Item value="Z" priority="130" />
+      <Item value="z" priority="161" />
+      <Item value="multiTile" priority="959" />
+      <Item value="multitile" priority="575" />
+      <Item value="tl" priority="63" />
+      <Item value="tileStyle" priority="299" />
+      <Item value="NotFiniteNumberException`0" priority="31" />
+      <Item value="NewsStyleUriParser`0" priority="63" />
+      <Item value="SelectTileforMultiTile`0" priority="63" />
+      <Item value="t" priority="383" />
+      <Item value="cat" priority="605" />
+      <Item value="tileWalls" priority="127" />
+      <Item value="floors" priority="31" />
+      <Item value="List&lt;IList&lt;TileCategory&gt;&gt;" priority="28" />
+      <Item value="catlist" priority="63" />
+      <Item value="AsyncCallback`0" priority="31" />
+      <Item value="clist" priority="63" />
+      <Item value="c" priority="511" />
+      <Item value="ConsoleSpecialKey`0" priority="31" />
+      <Item value="_myCategory" priority="95" />
+      <Item value="TileMisc`0" priority="127" />
+      <Item value="_tiles" priority="159" />
+      <Item value="_styles" priority="128" />
+      <Item value="MultiStruct" priority="26" />
+      <Item value="_multi" priority="191" />
+      <Item value="strings" priority="1114" />
+      <Item value="Flag" priority="32" />
+      <Item value="flag" priority="96" />
+      <Item value="wallCat" priority="191" />
+      <Item value="mt" priority="63" />
+      <Item value="ICollection" priority="64" />
+      <Item value="position" priority="96" />
+      <Item value="yield return" priority="314" />
+      <Item value="IEquatable" priority="152" />
+      <Item value="IEnumerable" priority="831" />
+      <Item value="wallTiles" priority="31" />
+      <Item value="wall" priority="127" />
+      <Item value="walls" priority="319" />
+      <Item value="Interfaces" priority="31" />
+      <Item value="w" priority="95" />
+      <Item value="ID" priority="96" />
+      <Item value="RoofTiles" priority="128" />
+      <Item value="RoofCat" priority="63" />
+      <Item value="roof" priority="95" />
+      <Item value="misc" priority="95" />
+      <Item value="misctile" priority="31" />
+      <Item value="roofs" priority="95" />
+      <Item value="miscs" priority="31" />
+      <Item value="rooftile" priority="31" />
+      <Item value="DataContext" priority="406" />
+      <Item value="TilesCategorySDKModule" priority="112" />
+      <Item value="UltimaSDKCoreModule`0" priority="221" />
+      <Item value="locator" priority="31" />
+      <Item value="sdk" priority="476" />
+      <Item value="List&lt;Factory&gt;" priority="86" />
+      <Item value="ListBoxWalls" priority="95" />
+      <Item value="abstract" priority="31" />
+      <Item value="_name" priority="95" />
+      <Item value="_id" priority="159" />
+      <Item value="listBoxFloors" priority="31" />
+      <Item value="SkillData`0" priority="63" />
+      <Item value="listBoxMisc" priority="26" />
+      <Item value="listBoxRoof" priority="26" />
+      <Item value="WindowStartupLocation" priority="58" />
+      <Item value="Microsoft" priority="60" />
+      <Item value="Win32" priority="78" />
+      <Item value="OpenFileDialog`0" priority="26" />
+      <Item value="SelectFile" priority="95" />
+      <Item value="TextBoxFileName" priority="95" />
+      <Item value="Txt" priority="63" />
+      <Item value="TxtFile" priority="28" />
+      <Item value="locationFile" priority="31" />
+      <Item value="FileCategories" priority="63" />
+      <Item value="float" priority="31" />
+      <Item value="WallOut" priority="95" />
+      <Item value="wallIn" priority="31" />
+      <Item value="tilesIn" priority="63" />
+      <Item value="VARIABLE" priority="95" />
+      <Item value="tw" priority="31" />
+      <Item value="InWalls" priority="31" />
+      <Item value="OutWalls" priority="31" />
+      <Item value="Filter" priority="127" />
+      <Item value="SaveFileDialog" priority="51" />
+      <Item value="selectfile" priority="85" />
+      <Item value="textBlock_SaveFileName" priority="90" />
+      <Item value="_sdk" priority="255" />
+      <Item value="catIn" priority="31" />
+      <Item value="catOut" priority="26" />
+      <Item value="DefaultExt" priority="26" />
+      <Item value="FilterIndex" priority="32" />
+      <Item value="list" priority="1214" />
+      <Item value="tIn" priority="95" />
+      <Item value="result" priority="31" />
+      <Item value="ListData" priority="317" />
+      <Item value="TileData`0" priority="159" />
+      <Item value="TileData" priority="462" />
+      <Item value="Core" priority="53" />
+      <Item value="PresentationFramework" priority="26" />
+      <Item value="UltimaSDKImageSourceModule`0" priority="26" />
+      <Item value="_container" priority="63" />
+      <Item value="container" priority="63" />
+      <Item value="ArtworkFactory`0" priority="414" />
+      <Item value="ArtworkFactory" priority="116" />
+      <Item value="CollectionContainer`0" priority="31" />
+      <Item value="MainWindow`0" priority="1046" />
+      <Item value="BitmapImage`0" priority="97" />
+      <Item value="image" priority="31" />
+      <Item value="ImageSource`0" priority="250" />
+      <Item value="_converter" priority="127" />
+      <Item value="BitmapConverter" priority="28" />
+      <Item value="Adapters" priority="26" />
+      <Item value="ContainerVisual`0" priority="31" />
+      <Item value="typeof" priority="444" />
+      <Item value="IArtworkStorageAdapter" priority="63" />
+      <Item value="Data" priority="250" />
+      <Item value="Window" priority="28" />
+      <Item value="DataView" priority="29" />
+      <Item value="Collections" priority="26" />
+      <Item value="ICollection`0" priority="26" />
+      <Item value="IEnumerable`0" priority="27" />
+      <Item value="StyleSimulations`0" priority="31" />
+      <Item value="IList`0" priority="32" />
+      <Item value="TileList`0" priority="30" />
+      <Item value="object" priority="123" />
+      <Item value="DataCategory" priority="693" />
+      <Item value="List&lt;TileWall&gt;" priority="28" />
+      <Item value="lock" priority="31" />
+      <Item value="DataStyle" priority="809" />
+      <Item value="_latest" priority="122" />
+      <Item value="DataTile" priority="1225" />
+      <Item value="serializer" priority="193" />
+      <Item value="XmlSerializer" priority="57" />
+      <Item value="TextBox`0" priority="58" />
+      <Item value="TextBoxFileSave" priority="213" />
+      <Item value="StreamWriter" priority="28" />
+      <Item value="FileStream" priority="261" />
+      <Item value="FileAccess`0" priority="31" />
+      <Item value="FileMode`0" priority="255" />
+      <Item value="SelectedCellsChangedEventArgs`0" priority="31" />
+      <Item value="Serializable" priority="1016" />
+      <Item value="ProtoBuf" priority="31" />
+      <Item value="Serializer`0" priority="26" />
+      <Item value="Xml" priority="53" />
+      <Item value="Runtime" priority="161" />
+      <Item value="Serialization" priority="161" />
+      <Item value="DataContractSerializer`0" priority="31" />
+      <Item value="bin" priority="319" />
+      <Item value="XmlDictionaryWriter`0" priority="92" />
+      <Item value="FileStream`0" priority="95" />
+      <Item value="file" priority="63" />
+      <Item value="IXmlBinaryReaderInitializer`0" priority="31" />
+      <Item value="binaryDictionaryWriter" priority="127" />
+      <Item value="BindingGroup" priority="95" />
+      <Item value="DataContractSerializer" priority="28" />
+      <Item value="stream" priority="127" />
+      <Item value="XmlDictionaryReader`0" priority="31" />
+      <Item value="binary" priority="63" />
+      <Item value="_list" priority="95" />
+      <Item value="XmlSerializer`0" priority="63" />
+      <Item value="DataContract" priority="127" />
+      <Item value="DataMember" priority="511" />
+      <Item value="DataContractResolver`0" priority="89" />
+      <Item value="XmlDictionaryString`0" priority="53" />
+      <Item value="xmlstring" priority="31" />
+      <Item value="xmlname" priority="31" />
+      <Item value="binaryFormatter" priority="161" />
+      <Item value="BinaryFormatter" priority="87" />
+      <Item value="BinaryFormatter`0" priority="63" />
+      <Item value="Factory" priority="223" />
+      <Item value="BitmapConverter`0" priority="63" />
+      <Item value="_filesave" priority="191" />
+      <Item value="OpenFileDialog" priority="52" />
+      <Item value="_fileload" priority="128" />
+      <Item value="List&lt;TileRoof&gt;" priority="28" />
+      <Item value="tileRoof" priority="63" />
+      <Item value="typetile" priority="127" />
+      <Item value="binder" priority="31" />
+      <Item value="Binder`0" priority="63" />
+      <Item value="CallingConventions`0" priority="31" />
+      <Item value="types" priority="128" />
+      <Item value="Type" priority="316" />
+      <Item value="parameter" priority="31" />
+      <Item value="BindingFlags`0" priority="31" />
+      <Item value="_types" priority="127" />
+      <Item value="List&lt;Type&gt;" priority="28" />
+      <Item value="ComboEnum" priority="158" />
+      <Item value="Wall" priority="16" />
+      <Item value="TileRoof" priority="59" />
+      <Item value="TileFloor" priority="59" />
+      <Item value="TileMisc" priority="59" />
+      <Item value="InvalidCastException`0" priority="31" />
+      <Item value="stylelist" priority="31" />
+      <Item value="selectfolder" priority="31" />
+      <Item value="s" priority="3454" />
+      <Item value="dialog" priority="31" />
+      <Item value="SDK" priority="249" />
+      <Item value="InstallLocation" priority="122" />
+      <Item value="Container" priority="93" />
+      <Item value="m_ItemData" priority="31" />
+      <Item value="binaryformatter" priority="58" />
+      <Item value="fileload" priority="30" />
+      <Item value="List&lt;IList&lt;IList&lt;TileCategory&gt;&gt;&gt;" priority="29" />
+      <Item value="Drawing" priority="354" />
+      <Item value="textBoxFolder" priority="280" />
+      <Item value="try" priority="284" />
+      <Item value="catch" priority="215" />
+      <Item value="LandSets" priority="548" />
+      <Item value="LandSet`0" priority="556" />
+      <Item value="ToList`1" priority="216" />
+      <Item value="CliffDirections`0" priority="353" />
+      <Item value="CliffTextReader`0" priority="31" />
+      <Item value="Strings" priority="634" />
+      <Item value="filelocation" priority="63" />
+      <Item value="fileLocation" priority="31" />
+      <Item value="fileName" priority="31" />
+      <Item value="factories" priority="32" />
+      <Item value="TextFileReading" priority="124" />
+      <Item value="TextFilesSdk`0" priority="156" />
+      <Item value="directory" priority="63" />
+      <Item value="Directory`0" priority="92" />
+      <Item value="ColorAreaTextFileReader`0" priority="31" />
+      <Item value="ColorAreaTextFileReader" priority="28" />
+      <Item value="Path`0" priority="127" />
+      <Item value="colorfactory" priority="31" />
+      <Item value="landSets" priority="32" />
+      <Item value="List&lt;LandSet&gt;" priority="56" />
+      <Item value="ItemsFile" priority="59" />
+      <Item value="ItemsSmooth" priority="396" />
+      <Item value="ColorMointainsReader" priority="29" />
+      <Item value="CliffTextReader" priority="29" />
+      <Item value="TextureSmoothTextReader" priority="29" />
+      <Item value="ColorCoastReader" priority="28" />
+      <Item value="ItemTextCoastReader" priority="28" />
+      <Item value="TextureAreaReader" priority="28" />
+      <Item value="colorcoast" priority="63" />
+      <Item value="colorMontains" priority="31" />
+      <Item value="itemsfactory" priority="31" />
+      <Item value="itemsTextCoast" priority="31" />
+      <Item value="ItemsSmooth`0" priority="380" />
+      <Item value="itemssmooth" priority="31" />
+      <Item value="texture" priority="351" />
+      <Item value="texturecliff" priority="63" />
+      <Item value="texturesmooth" priority="31" />
+      <Item value="#region" priority="30" />
+      <Item value="MapMaker" priority="404" />
+      <Item value="TextFilesSdk" priority="84" />
+      <Item value="BadImageFormatException`0" priority="62" />
+      <Item value="MapCreator" priority="27" />
+      <Item value="textstring" priority="282" />
+      <Item value="LandSet" priority="60" />
+      <Item value="Zmin" priority="32" />
+      <Item value="zmin" priority="32" />
+      <Item value="Zmax" priority="32" />
+      <Item value="landset" priority="124" />
+      <Item value="byte" priority="63" />
+      <Item value="bytes" priority="127" />
+      <Item value="Reverse`1" priority="26" />
+      <Item value="Array`0" priority="95" />
+      <Item value="Color" priority="663" />
+      <Item value="name" priority="385" />
+      <Item value="color" priority="854" />
+      <Item value="Color`0" priority="2470" />
+      <Item value="Converter" priority="192" />
+      <Item value="continue" priority="1919" />
+      <Item value="landSet" priority="699" />
+      <Item value="Convert`0" priority="482" />
+      <Item value="color_id" priority="58" />
+      <Item value="aString" priority="31" />
+      <Item value="counter" priority="638" />
+      <Item value="index" priority="287" />
+      <Item value="mystring" priority="223" />
+      <Item value="List&lt;string&gt;" priority="57" />
+      <Item value="s1" priority="479" />
+      <Item value="ColorConverter`0" priority="217" />
+      <Item value="Textures" priority="712" />
+      <Item value="List&lt;int&gt;" priority="57" />
+      <Item value="GeneralTransform`0" priority="30" />
+      <Item value="Lands" priority="218" />
+      <Item value="comboBoxDataSets" priority="185" />
+      <Item value="ColorConverter" priority="28" />
+      <Item value="ListCollectionView`0" priority="31" />
+      <Item value="Windows" priority="58" />
+      <Item value="Media" priority="26" />
+      <Item value="MarkupExtensionReturnTypeAttribute`0" priority="30" />
+      <Item value="mediacolor" priority="30" />
+      <Item value="Colors`0" priority="92" />
+      <Item value="WindowStartupLocation`0" priority="30" />
+      <Item value="SolidColorBrush`0" priority="30" />
+      <Item value="SolidColorBrush" priority="27" />
+      <Item value="media" priority="61" />
+      <Item value="ItemGroupsConverter`0" priority="30" />
+      <Item value="Items" priority="1202" />
+      <Item value="ItemsGroups`0" priority="85" />
+      <Item value="_items" priority="31" />
+      <Item value="GetItems`0" priority="31" />
+      <Item value="land" priority="188" />
+      <Item value="ItemGroup`0" priority="214" />
+      <Item value="List&lt;ItemGroup&gt;" priority="56" />
+      <Item value="itemsGroupse" priority="60" />
+      <Item value="itemGroup" priority="95" />
+      <Item value="MapCreator1`0" priority="61" />
+      <Item value="FactoryTex" priority="61" />
+      <Item value="TexmapFactory" priority="55" />
+      <Item value="MapCreator`0" priority="30" />
+      <Item value="dataGridTextures" priority="30" />
+      <Item value="StringSplitOptions`0" priority="543" />
+      <Item value="idd" priority="127" />
+      <Item value="area" priority="799" />
+      <Item value="area2" priority="127" />
+      <Item value="TextureArea" priority="212" />
+      <Item value="ListTextures" priority="25" />
+      <Item value="Sdk" priority="620" />
+      <Item value="str" priority="639" />
+      <Item value="MountainWindow`0" priority="30" />
+      <Item value="mountains" priority="636" />
+      <Item value="ColorMountains`0" priority="309" />
+      <Item value="MountainWindow" priority="28" />
+      <Item value="Circle`0" priority="159" />
+      <Item value="Circle" priority="29" />
+      <Item value="Exception`0" priority="184" />
+      <Item value="To" priority="63" />
+      <Item value="From" priority="63" />
+      <Item value="bool" priority="158" />
+      <Item value="ComposeMountains`0" priority="31" />
+      <Item value="id2" priority="31" />
+      <Item value="apply" priority="31" />
+      <Item value="color2" priority="31" />
+      <Item value="listofranges" priority="31" />
+      <Item value="tmp" priority="31" />
+      <Item value="groupses" priority="62" />
+      <Item value="Hue" priority="155" />
+      <Item value="hue" priority="32" />
+      <Item value="X" priority="97" />
+      <Item value="xshift" priority="32" />
+      <Item value="Y" priority="97" />
+      <Item value="yshift" priority="32" />
+      <Item value="Percentual" priority="31" />
+      <Item value="ItemsWindows" priority="25" />
+      <Item value="Item`0" priority="219" />
+      <Item value="latestlandset" priority="26" />
+      <Item value="ref" priority="735" />
+      <Item value="sbyte" priority="159" />
+      <Item value="DivideEtImpera`0" priority="95" />
+      <Item value="stringCounter" priority="127" />
+      <Item value="List&lt;Item&gt;" priority="57" />
+      <Item value="while" priority="31" />
+      <Item value="SmoothTextures`0" priority="378" />
+      <Item value="SmoothType`0" priority="26" />
+      <Item value="Direction`0" priority="159" />
+      <Item value="EdgeDirection`0" priority="255" />
+      <Item value="smooth" priority="478" />
+      <Item value="virtual" priority="127" />
+      <Item value="textures" priority="1253" />
+      <Item value="ItemSmoothFactory" priority="29" />
+      <Item value="TextureArea`0" priority="122" />
+      <Item value="Coasts2" priority="210" />
+      <Item value="Cliffs`0" priority="153" />
+      <Item value="SmoothTextures" priority="200" />
+      <Item value="Cliffs" priority="948" />
+      <Item value="CoastFactory" priority="29" />
+      <Item value="Coasts2`0" priority="281" />
+      <Item value="true" priority="767" />
+      <Item value="checked" priority="31" />
+      <Item value="CheckMake`0" priority="63" />
+      <Item value="In" priority="63" />
+      <Item value="Out" priority="63" />
+      <Item value="Many" priority="127" />
+      <Item value="many" priority="31" />
+      <Item value="GetHashCode`0" priority="255" />
+      <Item value="Colors" priority="448" />
+      <Item value="Coasts`0" priority="63" />
+      <Item value="coast" priority="1151" />
+      <Item value="ColorFrom" priority="189" />
+      <Item value="ColorTo" priority="162" />
+      <Item value="NormalPiece" priority="31" />
+      <Item value="ReadColorFromInt`0" priority="479" />
+      <Item value="LandSetSet`0" priority="32" />
+      <Item value="LinearTextures" priority="31" />
+      <Item value="ItemSmoot2Window" priority="57" />
+      <Item value="Smooth" priority="190" />
+      <Item value="TextureSmooth" priority="112" />
+      <Item value="List&lt;SmoothTextures&gt;" priority="57" />
+      <Item value="item" priority="1385" />
+      <Item value="Id`0" priority="348" />
+      <Item value="Value" priority="1270" />
+      <Item value="TextureID`0" priority="127" />
+      <Item value="Base" priority="58" />
+      <Item value="ItemID`0" priority="31" />
+      <Item value="IndexId`0" priority="159" />
+      <Item value="ItemID" priority="260" />
+      <Item value="Percent" priority="31" />
+      <Item value="ItemList" priority="60" />
+      <Item value="List&lt;ItemID&gt;" priority="28" />
+      <Item value="ConsoleColor`0" priority="159" />
+      <Item value="Items`0" priority="90" />
+      <Item value="ListLine`0" priority="159" />
+      <Item value="List&lt;List&lt;Id&gt;&gt;" priority="28" />
+      <Item value="Line" priority="96" />
+      <Item value="List&lt;Id&gt;" priority="57" />
+      <Item value="Translation`0" priority="159" />
+      <Item value="Lines" priority="159" />
+      <Item value="List&lt;ListLine&gt;" priority="28" />
+      <Item value="ListLine" priority="28" />
+      <Item value="BorderDirection`0" priority="30" />
+      <Item value="LineType`0" priority="283" />
+      <Item value="IDictionary" priority="220" />
+      <Item value="LinearDirection`0" priority="90" />
+      <Item value="direction" priority="191" />
+      <Item value="element" priority="64" />
+      <Item value="Textures`0" priority="122" />
+      <Item value="List&lt;TextureID&gt;" priority="57" />
+      <Item value="Index" priority="161" />
+      <Item value="IndexId" priority="115" />
+      <Item value="Texture" priority="64" />
+      <Item value="TextureCliff`0" priority="149" />
+      <Item value="List&lt;Color&gt;" priority="28" />
+      <Item value="Cliffses" priority="32" />
+      <Item value="List&lt;Cliffs&gt;" priority="28" />
+      <Item value="TextureSmooth`0" priority="95" />
+      <Item value="Translation" priority="86" />
+      <Item value="ItemsCoast`0" priority="284" />
+      <Item value="ColorCoast" priority="63" />
+      <Item value="ColorGround" priority="31" />
+      <Item value="Coasts" priority="63" />
+      <Item value="Ground" priority="63" />
+      <Item value="Elements" priority="631" />
+      <Item value="ComplexTypes" priority="26" />
+      <Item value="TextureID" priority="86" />
+      <Item value="Transition`0" priority="95" />
+      <Item value="Coast" priority="31" />
+      <Item value="ItemsCoast" priority="115" />
+      <Item value="List&lt;ItemsCoast&gt;" priority="28" />
+      <Item value="Smooths`0" priority="90" />
+      <Item value="List&lt;ItemsSmooth&gt;" priority="28" />
+      <Item value="ColorArea" priority="508" />
+      <Item value="Area`0" priority="277" />
+      <Item value="Low" priority="31" />
+      <Item value="Hight" priority="31" />
+      <Item value="MountainsCircle`0" priority="95" />
+      <Item value="List&lt;MountainsCircle&gt;" priority="28" />
+      <Item value="Automatic" priority="31" />
+      <Item value="List&lt;Area&gt;" priority="28" />
+      <Item value="IndexGroupTop" priority="95" />
+      <Item value="ColorMountain" priority="31" />
+      <Item value="MountainsAreas`0" priority="181" />
+      <Item value="List&lt;ColorMountains&gt;" priority="28" />
+      <Item value="Areas" priority="127" />
+      <Item value="ColorAreas" priority="213" />
+      <Item value="Area" priority="359" />
+      <Item value="First`1" priority="135" />
+      <Item value="Mountains" priority="123" />
+      <Item value="MountainsAreas" priority="90" />
+      <Item value="ColorMountains" priority="121" />
+      <Item value="Read`0" priority="31" />
+      <Item value="MountainsCircle" priority="28" />
+      <Item value="circle" priority="95" />
+      <Item value="AreaCoast" priority="58" />
+      <Item value="FactoryColorArea`0" priority="159" />
+      <Item value="ColorAreas`0" priority="149" />
+      <Item value="obj" priority="127" />
+      <Item value="val" priority="191" />
+      <Item value="other" priority="253" />
+      <Item value="provider" priority="31" />
+      <Item value="DateTime" priority="28" />
+      <Item value="Byte`0" priority="32" />
+      <Item value="ToBoolean`0" priority="32" />
+      <Item value="ItemText" priority="51" />
+      <Item value="ItemGroup" priority="170" />
+      <Item value="itemgroup" priority="378" />
+      <Item value="AllItems`0" priority="31" />
+      <Item value="List&lt;Items&gt;" priority="28" />
+      <Item value="items" priority="511" />
+      <Item value="Item" priority="316" />
+      <Item value="coastsAll" priority="32" />
+      <Item value="ItemsCoasts`0" priority="122" />
+      <Item value="ItemsCoasts" priority="582" />
+      <Item value="transition" priority="450" />
+      <Item value="LineType" priority="98" />
+      <Item value="SetTransition`0" priority="63" />
+      <Item value="FactoryTransition`0" priority="95" />
+      <Item value="coastpart" priority="255" />
+      <Item value="ImageFormatConverter`0" priority="63" />
+      <Item value="CoastTotal" priority="223" />
+      <Item value="counterLengt4" priority="159" />
+      <Item value="CoastsAll" priority="89" />
+      <Item value="Smooths" priority="283" />
+      <Item value="ColorTranslator`0" priority="58" />
+      <Item value="TransitionCheck`0" priority="58" />
+      <Item value="ToString`0" priority="26" />
+      <Item value="counter4" priority="255" />
+      <Item value="ToArray`1" priority="26" />
+      <Item value="asrt" priority="31" />
+      <Item value="a" priority="95" />
+      <Item value="b" priority="95" />
+      <Item value="List&lt;Textures&gt;" priority="28" />
+      <Item value="FactoryTextureArea`0" priority="63" />
+      <Item value="Directions" priority="64" />
+      <Item value="EastEnd" priority="16" />
+      <Item value="cliff" priority="705" />
+      <Item value="TextureCliff" priority="350" />
+      <Item value="IFormatProvider`0" priority="95" />
+      <Item value="ItemsAll`0" priority="26" />
+      <Item value="CoastsAll`0" priority="90" />
+      <Item value="Sdk2`0" priority="63" />
+      <Item value="ItemsAll" priority="28" />
+      <Item value="SmoothsAll" priority="28" />
+      <Item value="FactoryColor" priority="288" />
+      <Item value="FactoryCoast" priority="217" />
+      <Item value="FactoryMountains`0" priority="31" />
+      <Item value="FactoryMountains" priority="190" />
+      <Item value="FactoryItems" priority="217" />
+      <Item value="FactoryItemCoasts`0" priority="31" />
+      <Item value="FactoryItemCoasts" priority="185" />
+      <Item value="FactorySmoothItems`0" priority="31" />
+      <Item value="FactorySmooth" priority="32" />
+      <Item value="FactorySmoothItems" priority="153" />
+      <Item value="FactoryTextureArea" priority="158" />
+      <Item value="FactoryTextureSmooth`0" priority="31" />
+      <Item value="FactoryTextureSmooth" priority="158" />
+      <Item value="FactoryCliff`0" priority="31" />
+      <Item value="FactoryCliff" priority="158" />
+      <Item value="FactoryColorArea" priority="58" />
+      <Item value="Sdk2" priority="57" />
+      <Item value="read" priority="95" />
+      <Item value="chars" priority="31" />
+      <Item value="ItemList`0" priority="223" />
+      <Item value="ValueType`0" priority="31" />
+      <Item value="TouchUpEvent" priority="31" />
+      <Item value="LandData`0" priority="58" />
+      <Item value="LandData" priority="32" />
+      <Item value="ItemData`0" priority="505" />
+      <Item value="List&lt;ItemData&gt;" priority="202" />
+      <Item value="itemData" priority="1201" />
+      <Item value="data" priority="63" />
+      <Item value="tiles" priority="95" />
+      <Item value="TileFlag`0" priority="159" />
+      <Item value="HalfWalls" priority="63" />
+      <Item value="QuarterWalls" priority="53" />
+      <Item value="Archs" priority="31" />
+      <Item value="windows" priority="192" />
+      <Item value="Token" priority="191" />
+      <Item value="windowCategory" priority="368" />
+      <Item value="halfWalls" priority="90" />
+      <Item value="halfCategory" priority="351" />
+      <Item value="quarterWalls" priority="95" />
+      <Item value="orderby" priority="31" />
+      <Item value="MiscCat" priority="63" />
+      <Item value="quarterCategory" priority="351" />
+      <Item value="archs" priority="63" />
+      <Item value="arcsCategory" priority="319" />
+      <Item value="wallCategory" priority="181" />
+      <Item value="sh" priority="63" />
+      <Item value="half" priority="127" />
+      <Item value="st" priority="159" />
+      <Item value="window" priority="123" />
+      <Item value="quarter" priority="96" />
+      <Item value="listcat" priority="127" />
+      <Item value="let" priority="63" />
+      <Item value="lists" priority="63" />
+      <Item value="datalist" priority="31" />
+      <Item value="FullEmptyCategories`0" priority="127" />
+      <Item value="tiledatalist" priority="159" />
+      <Item value="IntPtr`0" priority="58" />
+      <Item value="tiledataPtr" priority="27" />
+      <Item value="internal" priority="31" />
+      <Item value="i" priority="863" />
+      <Item value="st1" priority="159" />
+      <Item value="CheckFromTxt" priority="127" />
+      <Item value="FullEmptyCategoriesTxTChecked`0" priority="139" />
+      <Item value="roofCategory" priority="245" />
+      <Item value="r" priority="95" />
+      <Item value="NativeMethods`0" priority="31" />
+      <Item value="st2" priority="127" />
+      <Item value="Selector`0" priority="191" />
+      <Item value="arch" priority="58" />
+      <Item value="separator2" priority="26" />
+      <Item value="FirstOrDefault`1" priority="45" />
+      <Item value="RemoveDuplicates`0" priority="31" />
+      <Item value="fact" priority="63" />
+      <Item value="selected" priority="30" />
+      <Item value="TmpStyleList" priority="31" />
+      <Item value="TmpTileList" priority="31" />
+      <Item value="DataStyleTmp" priority="144" />
+      <Item value="DataTileTmp" priority="227" />
+      <Item value="DataRefresh`0" priority="294" />
+      <Item value="BitmapReader`0" priority="191" />
+      <Item value="_bitmap" priority="319" />
+      <Item value="Bitmap" priority="89" />
+      <Item value="bitmapLocation" priority="95" />
+      <Item value="set" priority="32" />
+      <Item value="Bitmap`0" priority="351" />
+      <Item value="IMPLTYPEFLAGS`0" priority="31" />
+      <Item value="EXCEPINFO`0" priority="31" />
+      <Item value="row" priority="225" />
+      <Item value="coulmn" priority="240" />
+      <Item value="count" priority="31" />
+      <Item value="MemberwiseClone`0" priority="31" />
+      <Item value="Cache`0" priority="31" />
+      <Item value="_loc" priority="63" />
+      <Item value="BitmapColors" priority="95" />
+      <Item value="bitmap" priority="287" />
+      <Item value="bmpData" priority="220" />
+      <Item value="MapWriter`0" priority="63" />
+      <Item value="MapWriter" priority="32" />
+      <Item value="BitMap" priority="31" />
+      <Item value="BitmapReader" priority="57" />
+      <Item value="BitmapLocationMap" priority="63" />
+      <Item value="BitMapZ" priority="31" />
+      <Item value="colorMountainse" priority="186" />
+      <Item value="DivideByZeroException`0" priority="31" />
+      <Item value="colormountaise" priority="31" />
+      <Item value="itemsCoastse" priority="58" />
+      <Item value="ItemsCoastes" priority="26" />
+      <Item value="textureCliff" priority="126" />
+      <Item value="text" priority="63" />
+      <Item value="IndexOutOfRangeException`0" priority="31" />
+      <Item value="AreaCoast`0" priority="31" />
+      <Item value="TextureSmooths" priority="32" />
+      <Item value="colors" priority="128" />
+      <Item value="txt" priority="31" />
+      <Item value="SmoothsAll`0" priority="31" />
+      <Item value="MapMaker`0" priority="31" />
+      <Item value="BitmapMap" priority="2465" />
+      <Item value="map" priority="191" />
+      <Item value="BitmapMapZ" priority="351" />
+      <Item value="alt" priority="31" />
+      <Item value="MapOcc" priority="192" />
+      <Item value="Initialize`0" priority="269" />
+      <Item value="MapAlt" priority="186" />
+      <Item value="MapID" priority="191" />
+      <Item value="SetValue`0" priority="26" />
+      <Item value="AddItemMap" priority="373" />
+      <Item value="GetLowerBound`0" priority="26" />
+      <Item value="Tmp" priority="127" />
+      <Item value="AddID" priority="223" />
+      <Item value="_X" priority="480" />
+      <Item value="_Y" priority="385" />
+      <Item value="ColorMountainsAreas" priority="191" />
+      <Item value="mountcolors" priority="58" />
+      <Item value="chk" priority="31" />
+      <Item value="mountset" priority="373" />
+      <Item value="Random`0" priority="95" />
+      <Item value="UInt16`0" priority="31" />
+      <Item value="ApplicationId`0" priority="31" />
+      <Item value="TextureAreas" priority="63" />
+      <Item value="Random" priority="633" />
+      <Item value="random" priority="63" />
+      <Item value="TimeSpan`0" priority="63" />
+      <Item value="DateTime`0" priority="58" />
+      <Item value="cirlce" priority="63" />
+      <Item value="Mountain`0" priority="31" />
+      <Item value="RandomTexture`0" priority="95" />
+      <Item value="SmoothTilesCheck`0" priority="63" />
+      <Item value="TxtureSmooth" priority="31" />
+      <Item value="smoothT" priority="666" />
+      <Item value="RandomFromList`0" priority="715" />
+      <Item value="listSmooth" priority="127" />
+      <Item value="x1" priority="383" />
+      <Item value="y2" priority="31" />
+      <Item value="EnvironmentVariableTarget`0" priority="31" />
+      <Item value="y1" priority="319" />
+      <Item value="Smooth`0" priority="26" />
+      <Item value="NorthSouth" priority="16" />
+      <Item value="color_a" priority="31" />
+      <Item value="color_b" priority="31" />
+      <Item value="directions" priority="128" />
+      <Item value="SetCliff`0" priority="31" />
+      <Item value="Math`0" priority="122" />
+      <Item value="ColorAreasCoast" priority="464" />
+      <Item value="cost" priority="31" />
+      <Item value="A" priority="31" />
+      <Item value="B" priority="63" />
+      <Item value="areacoast" priority="159" />
+      <Item value="Edge" priority="16" />
+      <Item value="OtherMember" priority="31" />
+      <Item value="ColorLand" priority="95" />
+      <Item value="ColorCheck" priority="31" />
+      <Item value="coastliste" priority="31" />
+      <Item value="off" priority="95" />
+      <Item value="smoothItem" priority="447" />
+      <Item value="zlev" priority="31" />
+      <Item value="Rank" priority="26" />
+      <Item value="mnt" priority="63" />
+      <Item value="rand" priority="31" />
+      <Item value="group" priority="159" />
+      <Item value="tmp_item" priority="250" />
+      <Item value="additem`0" priority="31" />
+      <Item value="MulDirectory" priority="127" />
+      <Item value="mapIndex" priority="218" />
+      <Item value="staidx" priority="160" />
+      <Item value="BinaryReader`0" priority="31" />
+      <Item value="statics0" priority="251" />
+      <Item value="BinaryWriter" priority="86" />
+      <Item value="BinaryWriter`0" priority="63" />
+      <Item value="staidx0" priority="128" />
+      <Item value="statics" priority="95" />
+      <Item value="UInt32`0" priority="31" />
+      <Item value="length" priority="31" />
+      <Item value="mapmul" priority="64" />
+      <Item value="map0" priority="191" />
+      <Item value="grey" priority="31" />
+      <Item value="empty" priority="31" />
+      <Item value="AutomaticZMode" priority="159" />
+      <Item value="MakeCoastCheck`0" priority="63" />
+      <Item value="Altitude" priority="31" />
+      <Item value="altitude" priority="127" />
+      <Item value="BitmapData`0" priority="64" />
+      <Item value="rect" priority="31" />
+      <Item value="ImageLockMode`0" priority="31" />
+      <Item value="PixelFormat`0" priority="31" />
+      <Item value="rgbValues" priority="31" />
+      <Item value="_MapID" priority="95" />
+      <Item value="_MapAlt" priority="154" />
+      <Item value="ushort" priority="32" />
+      <Item value="rowlenght" priority="31" />
+      <Item value="stride" priority="97" />
+      <Item value="lenght" priority="122" />
+      <Item value="CalculateZone`0" priority="6945" />
+      <Item value="NonSerialized" priority="31" />
+      <Item value="_fast" priority="127" />
+      <Item value="Dictionary&lt;int,Textures&gt;" priority="28" />
+      <Item value="texturese" priority="63" />
+      <Item value="_stride" priority="31" />
+      <Item value="location2" priority="95" />
+      <Item value="locationOff" priority="31" />
+      <Item value="itemclone" priority="127" />
+      <Item value="ProcessZ`0" priority="31" />
+      <Item value="_MapOcc" priority="26" />
+      <Item value="Cast`1" priority="26" />
+      <Item value="_AddItemMap" priority="31" />
+      <Item value="MakeCoast2`0" priority="26" />
+      <Item value="found" priority="383" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.Enums.PositionWalls">
+      <Item value="None" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.PositionStairs">
+      <Item value="None" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.Tile">
+      <Item value="Id" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.AppDomain">
+      <Item value="CurrentDomain" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.AppDomain">
+      <Item value="GetType`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="ReadAllLines`0" priority="134" />
+      <Item value="WriteAllLines`0" priority="26" />
+      <Item value="WriteAllText`0" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.InstallLocation">
+      <Item value="GetPath`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Split`0" priority="972" />
+      <Item value="Replace`0" priority="269" />
+      <Item value="Remove`0" priority="53" />
+      <Item value="StartsWith`0" priority="701" />
+      <Item value="Contains`0" priority="589" />
+      <Item value="Length" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.TileCategory">
+      <Item value="Id" priority="26" />
+      <Item value="Name" priority="130" />
+      <Item value="Styles" priority="805" />
+      <Item value="FindTile`0" priority="674" />
+      <Item value="AddStyle`0" priority="458" />
+      <Item value="FindByPosition`0" priority="26" />
+      <Item value="AllTiles`0" priority="107" />
+      <Item value="FindStyleByName`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Factories.Factory">
+      <Item value="separators" priority="26" />
+      <Item value="Separators" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.TileStyle">
+      <Item value="Equals`0" priority="26" />
+      <Item value="Tiles" priority="456" />
+      <Item value="Name" priority="730" />
+      <Item value="Id" priority="26" />
+      <Item value="FindTile`0" priority="53" />
+      <Item value="SetCategory`0" priority="26" />
+      <Item value="GetCategory`0" priority="161" />
+      <Item value="FindTileByPosition`0" priority="135" />
+      <Item value="AddTile`0" priority="242" />
+      <Item value="RemoveTile`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="865" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.Tile">
+      <Item value="Id" priority="485" />
+      <Item value="Name" priority="26" />
+      <Item value="Position" priority="161" />
+      <Item value="SetStyle`0" priority="80" />
+      <Item value="GetStyle`0" priority="188" />
+      <Item value="GetType`0" priority="161" />
+      <Item value="Type" priority="53" />
+      <Item value="Equals`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add`0" priority="840" />
+      <Item value="Count" priority="107" />
+      <Item value="All`1" priority="80" />
+      <Item value="Insert`0" priority="26" />
+      <Item value="Contains`0" priority="189" />
+      <Item value="First`1" priority="53" />
+      <Item value="FirstOrDefault`1" priority="26" />
+      <Item value="Remove`0" priority="53" />
+      <Item value="Clear`0" priority="26" />
+      <Item value="Union`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.Tiles.TileFloor">
+      <Item value="PositionFloor" priority="134" />
+      <Item value="changeId`0" priority="26" />
+      <Item value="ChangeFloorPosition`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.PositionFloors">
+      <Item value="F2" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.PositionRoof">
+      <Item value="North" priority="26" />
+      <Item value="Eeast" priority="26" />
+      <Item value="SDent" priority="26" />
+      <Item value="South" priority="26" />
+      <Item value="West" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.Tiles.TileRoof">
+      <Item value="Id" priority="26" />
+      <Item value="changeId`0" priority="26" />
+      <Item value="ChangeRoofPosition`0" priority="26" />
+      <Item value="PosRoof" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.PositionWalls">
+      <Item value="Corner" priority="26" />
+      <Item value="East" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.PositionTiles">
+      <Item value="Corner" priority="53" />
+      <Item value="East" priority="53" />
+      <Item value="Post" priority="53" />
+      <Item value="South" priority="26" />
+      <Item value="None" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.PositionWallWindow">
+      <Item value="East" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ListBox">
+      <Item value="ItemsSource" priority="400" />
+      <Item value="SelectedItem" priority="216" />
+      <Item value="DataContext" priority="53" />
+      <Item value="Items" priority="107" />
+      <Item value="SelectedIndex" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.Ultima.InstallationLocator">
+      <Item value="Locate`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.Walls">
+      <Item value="Populate`0" priority="80" />
+      <Item value="Categories" priority="350" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.InstallationLocator">
+      <Item value="Equals`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.TreeView">
+      <Item value="ItemsSource" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Add`0" priority="80" />
+      <Item value="TryGetValue`0" priority="53" />
+      <Item value="Keys" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Count`1" priority="404" />
+      <Item value="First`1" priority="593" />
+      <Item value="FirstOrDefault`1" priority="215" />
+      <Item value="Aggregate`1" priority="80" />
+      <Item value="ToList`1" priority="242" />
+      <Item value="ToArray`1" priority="80" />
+      <Item value="Contains`1" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.TilesCategorySDKModule">
+      <Item value="supp" priority="26" />
+      <Item value="Categories" priority="161" />
+      <Item value="Install" priority="134" />
+      <Item value="RoofCat" priority="26" />
+      <Item value="FloorsCat" priority="26" />
+      <Item value="MiscCat" priority="27" />
+      <Item value="WallsCat" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.SuppInfo">
+      <Item value="Equals`0" priority="26" />
+      <Item value="PositionCheck`0" priority="26" />
+      <Item value="Populate`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.Factory">
+      <Item value="Populate`0" priority="26" />
+      <Item value="Categories" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="1862" />
+      <Item value="Union`1" priority="216" />
+      <Item value="Aggregate`1" priority="26" />
+      <Item value="First`1" priority="458" />
+      <Item value="Contains`0" priority="404" />
+      <Item value="Count" priority="487" />
+      <Item value="ToArray`0" priority="26" />
+      <Item value="Find`0" priority="26" />
+      <Item value="Remove`0" priority="54" />
+      <Item value="Where`1" priority="135" />
+      <Item value="FirstOrDefault`1" priority="500" />
+      <Item value="IndexOf`0" priority="54" />
+      <Item value="Join`4" priority="26" />
+      <Item value="Clear`0" priority="53" />
+      <Item value="All`1" priority="26" />
+      <Item value="Select`2" priority="239" />
+      <Item value="SelectMany`2" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="26" />
+      <Item value="IsNullOrEmpty`0" priority="994" />
+      <Item value="IsNullOrWhiteSpace`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.MultiStruct.MultiTile">
+      <Item value="id" priority="80" />
+      <Item value="OffsetX" priority="107" />
+      <Item value="OffsetY" priority="53" />
+      <Item value="Z" priority="53" />
+      <Item value="tile" priority="188" />
+      <Item value="Flag" priority="26" />
+      <Item value="Tile" priority="377" />
+      <Item value="ID" priority="53" />
+      <Item value="SetTile`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="242" />
+      <Item value="GetTypeCode`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="Name" priority="188" />
+      <Item value="GetConstructor`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.MultiStruct.Multi">
+      <Item value="AddTile`0" priority="26" />
+      <Item value="Categories" priority="26" />
+      <Item value="Walls" priority="26" />
+      <Item value="SubStitueWallCat`0" priority="26" />
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Components.Tiles.TileWall">
+      <Item value="Position" priority="296" />
+      <Item value="PositionW" priority="188" />
+      <Item value="WallPos" priority="80" />
+      <Item value="SetStyle`0" priority="26" />
+      <Item value="Id" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.TilesCategorySDKModule">
+      <Item value="Populate`0" priority="80" />
+      <Item value="Walls" priority="134" />
+      <Item value="Floors" priority="53" />
+      <Item value="Misc" priority="53" />
+      <Item value="Roofs" priority="81" />
+      <Item value="TakeFromTXTFile`0" priority="26" />
+      <Item value="Txt" priority="107" />
+      <Item value="Save`0" priority="26" />
+      <Item value="Load`0" priority="26" />
+      <Item value="TileData" priority="26" />
+      <Item value="Token" priority="26" />
+      <Item value="TmpStyleList" priority="134" />
+      <Item value="TmpTileList" priority="76" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2+KeyCollection">
+      <Item value="Concat`1" priority="26" />
+      <Item value="Contains`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.Floors">
+      <Item value="Categories" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.Misc">
+      <Item value="Categories" priority="162" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.Roofs">
+      <Item value="Categories" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Win32.OpenFileDialog">
+      <Item value="DefaultExt" priority="26" />
+      <Item value="ShowDialog`0" priority="26" />
+      <Item value="FileName" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
+      <Item value="HorizontalContentAlignment" priority="26" />
+      <Item value="Text" priority="512" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:TilesInfo.Factories.TxtFile">
+      <Item value="Populate`0" priority="26" />
+      <Item value="Walls" priority="26" />
+      <Item value="SubstitueWallCat`0" priority="26" />
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Win32.SaveFileDialog">
+      <Item value="ShowDialog`0" priority="26" />
+      <Item value="FileName" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.TileData">
+      <Item value="LandTable" priority="26" />
+      <Item value="ItemTable" priority="267" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Core.Patterns.IoCContainer">
+      <Item value="GetType`0" priority="26" />
+      <Item value="Resolve`1" priority="53" />
+      <Item value="TryResolve`0" priority="26" />
+      <Item value="Resolve`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO_WPF_Fiddler.MainWindow">
+      <Item value="Container" priority="107" />
+      <Item value="SDK" priority="670" />
+      <Item value="FactoryArt" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.ArtworkFactory">
+      <Item value="GetStatic`1" priority="161" />
+      <Item value="GetLand`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Media.Imaging.BitmapImage">
+      <Item value="SourceRect" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.DataGrid">
+      <Item value="ContextMenu" priority="26" />
+      <Item value="DataContext" priority="26" />
+      <Item value="ItemsSource" priority="806" />
+      <Item value="Items" priority="1291" />
+      <Item value="SelectedItem" priority="431" />
+      <Item value="UpdateLayout`0" priority="26" />
+      <Item value="HasItems" priority="54" />
+      <Item value="Loaded" priority="26" />
+      <Item value="SetResourceReference`0" priority="26" />
+      <Item value="SelectedIndex" priority="53" />
+      <Item value="SelectedItems" priority="72" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.DataView">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.ICollection`1">
+      <Item value="First`1" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="XamlCodeCompletionContext">
+      <Item value="SelectedItem" priority="47" />
+      <Item value="SetColumn`0" priority="5" />
+      <Item value="ObjectToBitmapConverter`0" priority="5" />
+      <Item value="Key" priority="11" />
+      <Item value="ObjectToEnumConverter`0" priority="5" />
+      <Item value="Object2enum" priority="5" />
+      <Item value="Window`0" priority="5" />
+      <Item value="Resources" priority="5" />
+      <Item value="OpenFolder_Click`0" priority="5" />
+      <Item value="ItemsSource" priority="23" />
+      <Item value="DataGridComboBoxColumn`0" priority="5" />
+      <Item value="ColorConverter`0" priority="5" />
+      <Item value="ColorList" priority="5" />
+      <Item value="StaticResourceExtension`0" priority="17" />
+      <Item value="dataGridLandSets" priority="11" />
+      <Item value="ColorConverter" priority="5" />
+      <Item value="Infinity" priority="5" />
+      <Item value="List`0" priority="5" />
+      <Item value="comboBoxDataSets" priority="5" />
+      <Item value="ElementName" priority="17" />
+      <Item value="SelectedItems" priority="5" />
+      <Item value="ObjectToint`0" priority="5" />
+      <Item value="AutoGenerateColumns" priority="5" />
+      <Item value="dataGridItemGroup" priority="11" />
+      <Item value="DataGridLinearNord" priority="5" />
+      <Item value="Converter" priority="5" />
+      <Item value="DataGridLinearSouth" priority="5" />
+      <Item value="DataGridLinearEast" priority="11" />
+      <Item value="DataGridBigEdgeNordWest" priority="5" />
+      <Item value="DataGridBigEdgeNordEast" priority="5" />
+      <Item value="DataGridBigEdgeSouthEast" priority="5" />
+      <Item value="DataGridBigEdgeSouthWest" priority="5" />
+      <Item value="DataGridLittleEdgeNordWest" priority="5" />
+      <Item value="DataGridLittleEdgeNordEast" priority="11" />
+      <Item value="DataGridLittleEdgeSouthEast" priority="5" />
+      <Item value="ListBox`0" priority="5" />
+      <Item value="dataGridColorMountains" priority="5" />
+      <Item value="dataGridItems" priority="5" />
+      <Item value="DataGridTextColumn`0" priority="5" />
+      <Item value="ColumnDisplayIndexChanged" priority="5" />
+      <Item value="BitmapConv" priority="11" />
+      <Item value="BitmapConverter" priority="5" />
+      <Item value="DataTile" priority="11" />
+      <Item value="ListData" priority="5" />
+      <Item value="OneWay" priority="5" />
+      <Item value="dataGridTextures" priority="5" />
+      <Item value="dataGridTexturesView" priority="5" />
+      <Item value="SelectedIndex" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ItemCollection">
+      <Item value="Clear`0" priority="377" />
+      <Item value="Refresh`0" priority="838" />
+      <Item value="DeferRefresh`0" priority="26" />
+      <Item value="Remove`0" priority="80" />
+      <Item value="MoveCurrentToPrevious`0" priority="26" />
+      <Item value="RemoveAt`0" priority="26" />
+      <Item value="CurrentPosition" priority="26" />
+      <Item value="NeedsRefresh" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.Serialization.XmlSerializer">
+      <Item value="Serialize`0" priority="26" />
+      <Item value="Deserialize`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.FileAccess">
+      <Item value="Read" priority="26" />
+      <Item value="Write" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.FileMode">
+      <Item value="OpenOrCreate" priority="130" />
+      <Item value="Open" priority="80" />
+      <Item value="CreateNew" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ProtoBuf.Serializer">
+      <Item value="Serialize`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Runtime.Serialization.DataContractSerializer">
+      <Item value="WriteStartObject`0" priority="26" />
+      <Item value="DataContractResolver" priority="161" />
+      <Item value="ReadObject`0" priority="26" />
+      <Item value="WriteObject`0" priority="26" />
+      <Item value="KnownTypes" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Xml.XmlDictionaryReader">
+      <Item value="CreateBinaryReader`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.FileStream">
+      <Item value="BeginRead`0" priority="26" />
+      <Item value="Write`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Runtime.Serialization.DataContractResolver">
+      <Item value="TryResolveType`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlDictionaryWriter">
+      <Item value="XmlLang" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter">
+      <Item value="Serialize`0" priority="26" />
+      <Item value="Deserialize`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO_WPF_Fiddler.Converters.BitmapConverter">
+      <Item value="Factory" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@TilesInfo.Components.Enums.Type">
+      <Item value="Roofs" priority="135" />
+      <Item value="Misc" priority="53" />
+      <Item value="Floor" priority="53" />
+      <Item value="Wall" priority="26" />
+      <Item value="None" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.BindingFlags">
+      <Item value="Public" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.CallingConventions">
+      <Item value="Any" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.ConstructorInfo">
+      <Item value="Invoke`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ComboBox">
+      <Item value="ItemsSource" priority="103" />
+      <Item value="SelectedItem" priority="161" />
+      <Item value="Items" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.FolderBrowserDialog">
+      <Item value="SelectedPath" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Directory">
+      <Item value="GetFiles`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Path">
+      <Item value="Combine`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factory">
+      <Item value="LandSets" priority="188" />
+      <Item value="Read`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFilesSdk">
+      <Item value="Populate`0" priority="26" />
+      <Item value="LandSets" priority="243" />
+      <Item value="Factories" priority="269" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.MapCreator">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToInt16`0" priority="109" />
+      <Item value="ToInt32`0" priority="729" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Array">
+      <Item value="Reverse`0" priority="26" />
+      <Item value="IndexOf`0" priority="26" />
+      <Item value="FindIndex`1" priority="26" />
+      <Item value="LastIndexOf`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Color">
+      <Item value="Color" priority="51" />
+      <Item value="Black" priority="622" />
+      <Item value="FromName`0" priority="26" />
+      <Item value="FromArgb`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.TextFileReading.Factory">
+      <Item value="separator" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.LandSets.LandSet">
+      <Item value="Coasts" priority="377" />
+      <Item value="Color" priority="242" />
+      <Item value="ItemsSmooths" priority="161" />
+      <Item value="Groups" priority="53" />
+      <Item value="TextureArea" priority="53" />
+      <Item value="Id" priority="53" />
+      <Item value="Mountains" priority="26" />
+      <Item value="AddItemGroup`0" priority="26" />
+      <Item value="Cliffs" priority="22" />
+      <Item value="Smooth" priority="80" />
+      <Item value="TextureSmooth" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Media.Color">
+      <Item value="FromAValues`0" priority="26" />
+      <Item value="FromArgb`0" priority="53" />
+      <Item value="FromRgb`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Color">
+      <Item value="A" priority="26" />
+      <Item value="R" priority="269" />
+      <Item value="G" priority="80" />
+      <Item value="B" priority="107" />
+      <Item value="Black" priority="130" />
+      <Item value="White" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Byte">
+      <Item value="MaxValue" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Media.Colors">
+      <Item value="Black" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Media.SolidColorBrush">
+      <Item value="Color" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Byte">
+      <Item value="CompareTo`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Items.ItemsGroups">
+      <Item value="GetItems`0" priority="53" />
+      <Item value="Groups" priority="53" />
+      <Item value="Items" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.TexmapFactory">
+      <Item value="GetTexmap`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO_WPF_Fiddler.MapCreator1">
+      <Item value="Lands" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.MapMaker.TextureWindow">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.LandSets.TextureArea">
+      <Item value="Textures" priority="53" />
+      <Item value="Id" priority="76" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.IEnumerable">
+      <Item value="AsParallel`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.MountainWindow">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.LandSets.Circle">
+      <Item value="from" priority="26" />
+      <Item value="to" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.MapMaker.ItemsWindows">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.LandSets.SmoothType">
+      <Item value="LittleEdge" priority="26" />
+      <Item value="BigEdge" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.LandSets.Direction">
+      <Item value="North" priority="80" />
+      <Item value="East" priority="81" />
+      <Item value="West" priority="80" />
+      <Item value="South" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.LandSets.EdgeDirection">
+      <Item value="NortEast" priority="103" />
+      <Item value="NortWest" priority="134" />
+      <Item value="SoutWest" priority="130" />
+      <Item value="SouthEast" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.MapMaker.ItemSmootWindow">
+      <Item value="Show`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.StringSplitOptions">
+      <Item value="RemoveEmptyEntries" priority="404" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.LandSets.Textures.SmoothTextures">
+      <Item value="AddBigEdge`0" priority="26" />
+      <Item value="ColorFrom" priority="299" />
+      <Item value="Textures" priority="83" />
+      <Item value="ColorTo" priority="83" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.LandSets.Items.Coasts2">
+      <Item value="NormalPiece" priority="242" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO_WPF_Fiddler.MapMaker.ItemSmoot2Window">
+      <Item value="Show`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.Elements.ComplexTypes.LineType">
+      <Item value="Line" priority="53" />
+      <Item value="Border" priority="26" />
+      <Item value="Edge" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.Elements.ComplexTypes.LinearDirection">
+      <Item value="North" priority="53" />
+      <Item value="East" priority="26" />
+      <Item value="West" priority="27" />
+      <Item value="South" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ComplexTypes.ListLine">
+      <Item value="Line" priority="26" />
+      <Item value="AddElement`0" priority="26" />
+      <Item value="List" priority="55" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.Elements.ComplexTypes.EdgeDirection">
+      <Item value="NortEast" priority="45" />
+      <Item value="NorthWest" priority="26" />
+      <Item value="SouthEast" priority="53" />
+      <Item value="SouthWest" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ColorArea.ColorAreas">
+      <Item value="List" priority="512" />
+      <Item value="AllColors`0" priority="53" />
+      <Item value="FindByColor`0" priority="81" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ColorArea.Area.Area">
+      <Item value="Color" priority="377" />
+      <Item value="Name" priority="54" />
+      <Item value="Index" priority="242" />
+      <Item value="Hight" priority="323" />
+      <Item value="Low" priority="297" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.Base.IndexId">
+      <Item value="Value" priority="458" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ColorArea.Mountains.ColorMountains">
+      <Item value="Color" priority="161" />
+      <Item value="ColorMountain" priority="184" />
+      <Item value="IndexMountainGroup" priority="188" />
+      <Item value="ModeAutomatic" priority="103" />
+      <Item value="IndexGroupTop" priority="80" />
+      <Item value="List" priority="107" />
+      <Item value="Name" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Boolean">
+      <Item value="Parse`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ColorArea.MountainsAreas">
+      <Item value="List" priority="26" />
+      <Item value="AllColors`0" priority="53" />
+      <Item value="FindMountainByColor`0" priority="80" />
+      <Item value="FindTopMountainsById`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ColorArea.Mountains.MountainsCircle">
+      <Item value="From" priority="80" />
+      <Item value="To" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.ColorArea.Area.AreaCoast">
+      <Item value="Index" priority="26" />
+      <Item value="Hight" priority="26" />
+      <Item value="Low" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.Base.Id">
+      <Item value="Value" priority="269" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.Items">
+      <Item value="Color" priority="107" />
+      <Item value="List" priority="107" />
+      <Item value="Name" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemsAll">
+      <Item value="List" priority="80" />
+      <Item value="SearchByColor`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemText.ItemGroup">
+      <Item value="Percent" priority="80" />
+      <Item value="Name" priority="53" />
+      <Item value="List" priority="215" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemText.Item">
+      <Item value="Id" priority="623" />
+      <Item value="Z" priority="487" />
+      <Item value="Hue" priority="109" />
+      <Item value="X" priority="297" />
+      <Item value="Y" priority="324" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.Base.ItemID">
+      <Item value="Equals`0" priority="26" />
+      <Item value="Value" priority="541" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.ComplexTypes.Transition">
+      <Item value="AddElement`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemCoast.ItemsCoast">
+      <Item value="Color" priority="1075" />
+      <Item value="Texture" priority="53" />
+      <Item value="Line" priority="53" />
+      <Item value="Lines" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.Base.TextureID">
+      <Item value="Equals`0" priority="26" />
+      <Item value="Value" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemsCoasts">
+      <Item value="Coast" priority="80" />
+      <Item value="Ground" priority="26" />
+      <Item value="Name" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.CoastsAll">
+      <Item value="List" priority="188" />
+      <Item value="FindCoastByColor`0" priority="107" />
+      <Item value="FindGroundByColor`0" priority="22" />
+      <Item value="AllColorsCoast`0" priority="80" />
+      <Item value="AllColorsGround`0" priority="26" />
+      <Item value="FindByColor`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.ColorTranslator">
+      <Item value="FromHtml`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemsSmooth.ItemsSmooth">
+      <Item value="ColorFrom" priority="404" />
+      <Item value="ColorTo" priority="80" />
+      <Item value="Edge" priority="54" />
+      <Item value="Border" priority="80" />
+      <Item value="Line" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.Smooths">
+      <Item value="List" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Textures.Textures">
+      <Item value="Index" priority="134" />
+      <Item value="List" priority="107" />
+      <Item value="Name" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Textures.TextureArea">
+      <Item value="Equals`0" priority="26" />
+      <Item value="List" priority="26" />
+      <Item value="FindByIndex`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Textures.Cliffs">
+      <Item value="Color" priority="377" />
+      <Item value="List" priority="80" />
+      <Item value="FindFromByColor`0" priority="53" />
+      <Item value="FindToByColor`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Textures.TextureCliff.TextureCliff">
+      <Item value="Colors" priority="323" />
+      <Item value="List" priority="53" />
+      <Item value="Directions" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Textures.TextureSmooth.TextureSmooth">
+      <Item value="ColorFrom" priority="130" />
+      <Item value="ColorTo" priority="76" />
+      <Item value="Name" priority="26" />
+      <Item value="Border" priority="189" />
+      <Item value="Lines" priority="53" />
+      <Item value="Edge" priority="162" />
+      <Item value="BorderNorthEast" priority="26" />
+      <Item value="Line" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Textures.SmoothTextures">
+      <Item value="List" priority="26" />
+      <Item value="FindFromByColor`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Colors.FactoryColorArea">
+      <Item value="Areas" priority="53" />
+      <Item value="Read`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Colors.FactoryCoast">
+      <Item value="Read`0" priority="26" />
+      <Item value="Area" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Colors.FactoryMountains">
+      <Item value="Read`0" priority="26" />
+      <Item value="Mountains" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Items.FactoryItems">
+      <Item value="Read`0" priority="26" />
+      <Item value="Items" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Items.FactoryItemCoasts">
+      <Item value="CoastsAll" priority="53" />
+      <Item value="Read`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Items.FactorySmoothItems">
+      <Item value="Read`0" priority="26" />
+      <Item value="SmoothsAll" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Textures.FactoryTextureArea">
+      <Item value="Read`0" priority="26" />
+      <Item value="Textures" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Textures.FactoryTextureSmooth">
+      <Item value="Read`0" priority="26" />
+      <Item value="Smooth" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.TextFileReading.Factories2.Textures.FactoryCliff">
+      <Item value="Read`0" priority="26" />
+      <Item value="Cliffs" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Sdk2">
+      <Item value="Populate`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.ItemData">
+      <Item value="Impassable" priority="26" />
+      <Item value="Name" priority="299" />
+      <Item value="Height" priority="53" />
+      <Item value="Flags" priority="107" />
+      <Item value="Value" priority="190" />
+      <Item value="Id" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.Ultima.TileFlag">
+      <Item value="Wall" priority="80" />
+      <Item value="Window" priority="26" />
+      <Item value="Roof" priority="26" />
+      <Item value="Door" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.Ultima.TileFlag">
+      <Item value="HasFlag`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.IList">
+      <Item value="Clear`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Bitmap">
+      <Item value="Height" priority="108" />
+      <Item value="Width" priority="54" />
+      <Item value="LockBits`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Imaging.BitmapData">
+      <Item value="Height" priority="134" />
+      <Item value="Width" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.ItemCoast.ItemsCoasts">
+      <Item value="Ground" priority="755" />
+      <Item value="Coast" priority="405" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Random">
+      <Item value="Next`0" priority="431" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.TimeSpan">
+      <Item value="TicksPerSecond" priority="26" />
+      <Item value="FromMilliseconds`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="Hour" priority="26" />
+      <Item value="Millisecond" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.ComplexTypes.ListLine">
+      <Item value="Third" priority="216" />
+      <Item value="Second" priority="185" />
+      <Item value="Forth" priority="134" />
+      <Item value="List" priority="161" />
+      <Item value="First" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.BaseTypes.ComplexTypes.ItemList">
+      <Item value="List" priority="512" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.Elements.Textures.TextureCliff.CliffDirections">
+      <Item value="WestEast" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Math">
+      <Item value="Max`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@OpenUO.MapMaker.Elements.BaseTypes.ComplexTypes.Enum.LineType">
+      <Item value="Line" priority="80" />
+      <Item value="Border" priority="26" />
+      <Item value="Edge" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:OpenUO.MapMaker.Elements.Items.SmoothsAll">
+      <Item value="FindFromByColor`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.BinaryWriter">
+      <Item value="Write`0" priority="323" />
+      <Item value="Flush`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Imaging.PixelFormat">
+      <Item value="Format8bppIndexed" priority="53" />
+      <Item value="Format24bppRgb" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Imaging.ImageLockMode">
+      <Item value="ReadOnly" priority="53" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">False</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

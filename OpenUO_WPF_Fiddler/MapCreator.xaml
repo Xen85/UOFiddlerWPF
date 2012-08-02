@@ -1,0 +1,21 @@
+﻿<Window x:Class="OpenUO_WPF_Fiddler.MapCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:OpenUO_WPF_Fiddler="clr-namespace:OpenUO_WPF_Fiddler"
+        xmlns:MapMaker="clr-namespace:OpenUO_WPF_Fiddler.MapMaker" Title="MapCreator" Height="1024" Width="748">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer Name="scrollViewer1">
+            <TabControl Name="Tabs">
+                <TabItem Header="Informations" Name="TabInfo">
+                    <MapMaker:MapCreator2 />
+                </TabItem>
+                <TabItem Header="Make the Map" Name="TabMake">
+                    <MapMaker:MapMakerMake />
+                </TabItem>
+            </TabControl>
+        </ScrollViewer>
+    </Grid>
+</Window>

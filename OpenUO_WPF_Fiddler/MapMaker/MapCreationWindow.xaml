@@ -1,0 +1,320 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:OpenUO_WPF_Fiddler_Converters="clr-namespace:OpenUO_WPF_Fiddler.Converters"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="OpenUO_WPF_Fiddler.MapCreationWindow"
+	x:Name="Window"
+	Title="MapCreationWindow"
+	Width="1024" Height="768">
+
+	<Window.Resources>
+		<OpenUO_WPF_Fiddler_Converters:ConverterColorToBrush x:Key="Brushconv"/>
+		<OpenUO_WPF_Fiddler_Converters:BitmapConverter x:Key="BitmapConv" />
+		<OpenUO_WPF_Fiddler_Converters:TextureConverter x:Key="textconverter"/>
+		<Storyboard x:Key="GroundSelected"/>
+		<Storyboard x:Key="CoastSelected"/>
+	</Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="Selector.Selected" SourceName="comboBoxItem">
+			<BeginStoryboard Storyboard="{StaticResource GroundSelected}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Selector.Selected" SourceName="comboBoxItem">
+			<BeginStoryboard x:Name="GroundSelected_BeginStoryboard" Storyboard="{StaticResource GroundSelected}"/>
+		</EventTrigger>
+	</Window.Triggers>
+
+	<Grid x:Name="LayoutRoot">
+		<TabControl x:Name="TabControl" Margin="8,60,0,0">
+			<TabItem Header="Color Areas" x:Name="TabColorArea">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" x:Name="DataGridColorArea" ItemsSource="{Binding ColorArea.List}">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding Color}" Header="Color Code"/>
+							<DataGridTextColumn Binding="{Binding Index}" Header="Id" />
+							<DataGridTextColumn Binding="{Binding Low}" Header="Lower Z" />
+							<DataGridTextColumn Binding="{Binding Hight}" Header="Highter Z" />
+							<DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+						</DataGrid.Columns>
+					</DataGrid>
+					<ScrollViewer/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Color Coasts" x:Name="TabColorCoast">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" x:Name="dataGridColorCoasts" ItemsSource="{Binding ColorCoast.List}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Binding="{Binding Index}" Header="Id" />
+							<DataGridTextColumn Binding="{Binding Low}" Header="Lower Z" />
+							<DataGridTextColumn Binding="{Binding Hight}" Header="Highter Z" />
+							<DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+							<DataGridTextColumn Binding="{Binding Color}" Header="Color Code"/>
+							<DataGridTemplateColumn Header="Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+					<ScrollViewer/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Color Mountains" x:Name="TabColorMountains">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" x:Name="dataGridColorMountains" ItemsSource="{Binding ColorMountains.List}" Margin="0,47,0,87.373" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="396.334" >
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding Color}" Header="Color Code"/>
+							<DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
+							<DataGridTextColumn Binding="{Binding IndexMountainGroup}" Header="Index"/>
+							<DataGridTextColumn Binding="{Binding IndexGroupTop}" Header="Index of the top"/>
+							<DataGridCheckBoxColumn Binding="{Binding ModeAutomatic}" Header="Automatic"/>
+						</DataGrid.Columns>
+					</DataGrid>
+                    <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="602.333,47,0,87.373" x:Name="dataGridColorCircles" Width="397" ItemsSource="{Binding SelectedItem.List, ElementName=dataGridColorMountains}" />
+				</Grid>
+			</TabItem>
+			<TabItem Header="Items" x:Name="TabItems">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" Height="183" HorizontalAlignment="Left" x:Name="dataGridItems" VerticalAlignment="Top" Width="277" ItemsSource="{Binding Items.List}" Margin="42.666,32,0,0" >
+						<DataGrid.Columns>
+							<DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+							<DataGridTemplateColumn Header="Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding Color}" Header="Color"/>
+						</DataGrid.Columns>
+					</DataGrid>
+					<DataGrid AutoGenerateColumns="False" Height="183" Margin="47.666,270.373,0,0" x:Name="dataGridGroupsItem" VerticalAlignment="Top" ItemsSource="{Binding SelectedItem.List, ElementName=dataGridItems}" HorizontalAlignment="Left" Width="272">
+						<DataGrid.Columns>
+							<DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
+							<DataGridTextColumn Binding="{Binding Percent}" Header="%" />
+						</DataGrid.Columns>
+					</DataGrid>
+					<DataGrid AutoGenerateColumns="True" Height="183" HorizontalAlignment="Left" Margin="400,32,0,0" x:Name="dataGridItem" VerticalAlignment="Top" Width="272" ItemsSource="{Binding SelectedItem.List, ElementName=dataGridGroupsItem}" d:LayoutOverrides="VerticalAlignment" />
+					<Image HorizontalAlignment="Left" Margin="714,32,0,0" x:Name="image1" Stretch="None" Width="277.333" Source="{Binding SelectedItem.Id, Converter={StaticResource BitmapConv}, ElementName=dataGridItem}" Height="183" VerticalAlignment="Top"/>
+					<DataGrid Margin="400,270.373,327.333,186" Name="DataGridIDataItem"/>
+					<Image HorizontalAlignment="Right" Margin="0,270.373,8,186" Width="269.333" Source="{Binding Path=SelectedItem.Id, Converter={StaticResource BitmapConv}, ElementName=DataGridIDataItem}"/>
+				</Grid>
+			</TabItem>
+            
+			<TabItem Header="Items Coast" x:Name="TabItemsCoast">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" Height="85.039" HorizontalAlignment="Left" x:Name="DataGridItemCoastsAll" VerticalAlignment="Top" Width="983.333" ItemsSource="{Binding ItemsCoasts.List}" Margin="8,8,0,0" >
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            
+							<DataGridTemplateColumn Header="Ground Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Ground.Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Header="Ground Color" Binding="{Binding Ground.Color}"/>
+							<DataGridTemplateColumn Header="Coast Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Coast.Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Header="Coast Color" Binding="{Binding Coast.Color}"/>
+						</DataGrid.Columns>
+					</DataGrid>
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" Margin="8,211.333,0,0" x:Name="DataGridCoastGroundCoastLine" VerticalAlignment="Top" Width="137" ItemsSource="{Binding SelectedItem.Ground.LineNorth.List, ElementName=DataGridItemCoastsAll}" RenderTransformOrigin="0.504,1.06"/>
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.LineEast.List, ElementName=DataGridItemCoastsAll}" Margin="290.666,211.333,0,0" x:Name="dataGrid1" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" ItemsSource="{Binding SelectedItem.Ground.LineWest.List, ElementName=DataGridItemCoastsAll}" Margin="0,211.333,246.333,0" x:Name="dataGrid2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.LineSouth.List, ElementName=DataGridItemCoastsAll}" Margin="846.333,211.333,0,0" x:Name="dataGrid3" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.BorderNorthEast.List, ElementName=DataGridItemCoastsAll}" Margin="8,373.001,0,0" x:Name="dataGrid4" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.BorderNorthWest.List, ElementName=DataGridItemCoastsAll}" Margin="290.666,373.001,0,0" x:Name="dataGrid5" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" ItemsSource="{Binding SelectedItem.Ground.BorderSouthWest.List, ElementName=DataGridItemCoastsAll}" Margin="0,373.001,246.333,0" x:Name="dataGrid6" VerticalAlignment="Top" HorizontalAlignment="Right" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.BorderSouthEast.List, ElementName=DataGridItemCoastsAll}" Margin="846.333,373.001,0,0" x:Name="dataGrid7" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.EdgeNorthWest.List, ElementName=DataGridItemCoastsAll}" Margin="8,530.373,0,0" x:Name="dataGrid8" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.EdgeNorthEast.List, ElementName=DataGridItemCoastsAll}" Margin="290.666,530.373,0,0" x:Name="dataGrid9" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" ItemsSource="{Binding SelectedItem.Ground.EdgeSouthEast.List, ElementName=DataGridItemCoastsAll}" Margin="0,530.373,246.333,0" x:Name="dataGrid10" VerticalAlignment="Top" HorizontalAlignment="Right" Width="146"/>
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.Ground.EdgeSouthWest.List, ElementName=DataGridItemCoastsAll}" Margin="846.333,530.373,0,0" x:Name="dataGrid11" VerticalAlignment="Top" Width="137" />
+					<ComboBox HorizontalAlignment="Left" Margin="8,114.039,0,0" VerticalAlignment="Top" Width="297.334" Height="28.627">
+						<ComboBoxItem Content="See Ground&#xd;&#xa;"/>
+						<ComboBoxItem Content="See Coast&#xd;&#xa;"/>
+					</ComboBox>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Items Smooth" x:Name="TabItemsSmooth">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" Height="121" HorizontalAlignment="Left" ItemsSource="{Binding SmoothsAll.List}" Margin="6,6,0,0" x:Name="DataGridItemsSmooth" VerticalAlignment="Top" Width="584">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Color From">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Fill="{Binding ColorFrom, Converter={StaticResource Brushconv}}" Height="10" Stroke="Black" Width="20" />
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding ColorFrom}" Header="Color From" />
+							<DataGridTemplateColumn Header="Coast Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Fill="{Binding ColorTo, Converter={StaticResource Brushconv}}" Height="10" Stroke="Black" Width="20" />
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding ColorTo}" Header="Coast Color" />
+						</DataGrid.Columns>
+					</DataGrid>
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineNorth.List, ElementName=DataGridItemsSmooth}" Margin="10,202,0,0" x:Name="dataGrid13" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineEast.List, ElementName=DataGridItemsSmooth}" Margin="156,202,0,0" x:Name="dataGrid14" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineWest.List, ElementName=DataGridItemsSmooth}" Margin="299,202,0,0" x:Name="dataGrid15" VerticalAlignment="Top" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineSouth.List, ElementName=DataGridItemsSmooth}" Margin="451,202,0,0" x:Name="dataGrid16" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderNorthEast.List, ElementName=DataGridItemsSmooth}" Margin="10,347,0,0" x:Name="dataGrid17" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderNorthWest.List, ElementName=DataGridItemsSmooth}" Margin="156,347,0,0" x:Name="dataGrid18" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderSouthWest.List, ElementName=DataGridItemsSmooth}" Margin="299,347,0,0" x:Name="dataGrid19" VerticalAlignment="Top" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderSouthEast.List, ElementName=DataGridItemsSmooth}" Margin="451,347,0,0" x:Name="dataGrid20" VerticalAlignment="Top" Width="133" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeNorthWest.List, ElementName=DataGridItemsSmooth}" Margin="10,508,0,0" x:Name="dataGrid21" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeNorthEast.List, ElementName=DataGridItemsSmooth}" Margin="156,508,0,0" x:Name="dataGrid22" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeSouthEast.List, ElementName=DataGridItemsSmooth}" Margin="299,508,0,0" x:Name="dataGrid23" VerticalAlignment="Top" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeSouthWest.List, ElementName=DataGridItemsSmooth}" Margin="451,508,0,0" x:Name="dataGrid24" VerticalAlignment="Top" Width="133" />
+				</Grid>
+			</TabItem>
+			<TabItem Header="Textures" x:Name="TabTextures">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" Height="128" HorizontalAlignment="Left" Margin="1,3,0,0" x:Name="dataGridTextures" VerticalAlignment="Top" Width="583" ItemsSource="{Binding TextureArea.List}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Id" Binding="{Binding Index}"/>
+							<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+						</DataGrid.Columns>
+					</DataGrid>
+					<DataGrid AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" Margin="1,145,0,0" x:Name="dataGridTexturesView" VerticalAlignment="Top" Width="314" ItemsSource="{Binding SelectedItem.List, ElementName=dataGridTextures}" />
+					<Image Height="150" HorizontalAlignment="Left" Margin="384,145,0,0" x:Name="ImageTexture" Stretch="None" VerticalAlignment="Top" Width="200" Source="{Binding SelectedItem.Value, Converter={StaticResource textconverter}, ElementName=dataGridTexturesView}" />
+					<ListBox Height="188" HorizontalAlignment="Left" Margin="6,385,0,0" x:Name="ListBoxAllTextures" VerticalAlignment="Top" Width="313" />
+					<Image Height="150" HorizontalAlignment="Left" Margin="384,385,0,0" x:Name="imageTextureArray" Stretch="None" VerticalAlignment="Top" Width="200" Source="{Binding SelectedIndex, Converter={StaticResource textconverter}, ElementName=ListBoxAllTextures}" />
+				</Grid>
+			</TabItem>
+			<TabItem Header="Texture Smooth" x:Name="TabTextureSmooth">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" Height="121" HorizontalAlignment="Left" ItemsSource="{Binding SmoothTextures.List}" Margin="6,20,0,0" x:Name="DataGridTextureSmooth" VerticalAlignment="Top" Width="584">
+						<DataGrid.Columns>
+							<DataGridTemplateColumn Header="Color From">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Fill="{Binding ColorFrom, Converter={StaticResource Brushconv}}" Height="10" Stroke="Black" Width="20" />
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding ColorFrom}" Header="Color From" />
+							<DataGridTemplateColumn Header="Coast Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Fill="{Binding ColorTo, Converter={StaticResource Brushconv}}" Height="10" Stroke="Black" Width="20" />
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Binding="{Binding ColorTo}" Header="Coast Color" />
+						</DataGrid.Columns>
+					</DataGrid>
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineNorth.List, ElementName=DataGridTextureSmooth}" Margin="6,216,0,0" x:Name="dataGrid26" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineEast.List, ElementName=DataGridTextureSmooth}" Margin="156,216,0,0" x:Name="dataGrid27" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineWest.List, ElementName=DataGridTextureSmooth}" Margin="299,216,0,0" x:Name="dataGrid28" VerticalAlignment="Top" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineSouth.List, ElementName=DataGridTextureSmooth}" Margin="451,216,0,0" x:Name="dataGrid29" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderNorthEast.List, ElementName=DataGridTextureSmooth}" Margin="6,361,0,0" x:Name="dataGrid30" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderNorthWest.List, ElementName=DataGridTextureSmooth}" Margin="156,361,0,0" x:Name="dataGrid31" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderSouthWest.List, ElementName=DataGridTextureSmooth}" Margin="299,361,0,0" x:Name="dataGrid32" VerticalAlignment="Top" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.BorderSouthEast.List, ElementName=DataGridTextureSmooth}" Margin="451,361,0,0" x:Name="dataGrid33" VerticalAlignment="Top" Width="133" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeNorthWest.List, ElementName=DataGridTextureSmooth}" Margin="6,522,0,0" x:Name="dataGrid34" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeNorthEast.List, ElementName=DataGridTextureSmooth}" Margin="156,522,0,0" x:Name="dataGrid35" VerticalAlignment="Top" Width="137" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeSouthEast.List, ElementName=DataGridTextureSmooth}" Margin="299,522,0,0" x:Name="dataGrid36" VerticalAlignment="Top" Width="146" />
+					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.EdgeSouthWest.List, ElementName=DataGridTextureSmooth}" Margin="451,522,0,0" x:Name="dataGrid37" VerticalAlignment="Top" Width="133" />
+				</Grid>
+			</TabItem>
+			<TabItem Header="Texture Cliff" x:Name="TabCliffs">
+				<Grid>
+					<DataGrid AutoGenerateColumns="False" Height="134" HorizontalAlignment="Left" Margin="7,6,0,0" x:Name="dataGrid25" VerticalAlignment="Top" Width="577" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="405,146,0,0" x:Name="dataGrid40" VerticalAlignment="Top" Width="179" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="7,146,0,0" x:Name="dataGrid38" VerticalAlignment="Top" Width="195" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="208,146,0,0" x:Name="dataGrid39" VerticalAlignment="Top" Width="191" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="6,317,0,0" x:Name="dataGrid41" VerticalAlignment="Top" Width="196" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="208,317,0,0" x:Name="dataGrid42" VerticalAlignment="Top" Width="191" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="405,317,0,0" x:Name="dataGrid43" VerticalAlignment="Top" Width="179" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="6,491,0,0" x:Name="dataGrid44" VerticalAlignment="Top" Width="277" />
+					<DataGrid AutoGenerateColumns="False" Height="148" HorizontalAlignment="Left" Margin="289,491,0,0" x:Name="dataGrid45" VerticalAlignment="Top" Width="295" />
+				</Grid>
+			</TabItem>
+			<TabItem Header="TabItem">
+				<Grid Background="#FFE5E5E5">
+					<DataGrid AutoGenerateColumns="False" Height="103.706" x:Name="DataGridItemCoastsAll_Copy" VerticalAlignment="Top" ItemsSource="{Binding ItemsCoasts.List}" Margin="8,113.333,0,0" HorizontalAlignment="Left" >
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            
+							<DataGridTemplateColumn Header="Ground Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Ground.Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Header="Ground Color" Binding="{Binding Ground.Color}"/>
+							<DataGridTemplateColumn Header="Coast Color">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<Rectangle Height="10" Width="20" Stroke="Black" Fill="{Binding Coast.Color, Converter={StaticResource Brushconv}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<DataGridTextColumn Header="Coast Color" Binding="{Binding Coast.Color}"/>
+						</DataGrid.Columns>
+					</DataGrid>
+					<ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="8,34.667,0,0" VerticalAlignment="Top" Width="198.667" Height="29.96">
+						<ComboBoxItem x:Name="comboBoxItem" Content="Ground"/>
+						<ComboBoxItem x:Name="comboBoxItem1" Content="Coast"/>
+					</ComboBox>
+					<DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="8,306.374,0,205.332" Width="350.743" ItemsSource="{Binding SelectedItem.Coasts.Lines, ElementName=DataGridItemCoastsAll_Copy, FallbackValue=Coasts.Lines}"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>
