@@ -12,10 +12,17 @@ namespace TilesInfo
 {
     public class TilesCategorySDKModule
     {
+        #region fields
         private char[] separator = new[]{'-'};
         private char[] separator2 = new[] {' '};
+        #endregion
+
+        #region static fields
         public static InstallLocation Install;
         public static IList<IList<TileCategory>> Categories;
+        #endregion
+
+        #region public fields
         public IList<Factory> Factories; 
         public static SuppInfo Supp;
         public Walls Walls;
@@ -23,6 +30,10 @@ namespace TilesInfo
         public Roofs Roofs;
         public Floors Floors;
         public TxtFile Txt;
+        #endregion
+
+        #region props
+
         public IList<TileCategory> WallsCat { get { return Categories[0]; } }
         public IList<TileCategory> MiscCat { get { return Categories[1]; } }
         public IList<TileCategory> RoofCat { get { return Categories[2]; } }
@@ -33,8 +44,9 @@ namespace TilesInfo
         public List<Tile> TmpTileList { get; set; }
         public List<TileStyle> TmpStyleList { get; set; }
         
+        #endregion
 
-
+        #region ctor
         public TilesCategorySDKModule(InstallLocation install)
         {
             
@@ -58,7 +70,9 @@ namespace TilesInfo
 
 
         }
+        #endregion
 
+        #region methods
 
         public void Populate()
         {
@@ -207,8 +221,6 @@ namespace TilesInfo
             tileCategory.AddStyle(style);
         }
 
-        
-
         private TileStyle Selector (TileCategory tileCategory, TileStyle s)
         {
             var style = from sh in tileCategory.Styles
@@ -216,7 +228,6 @@ namespace TilesInfo
                        select sh;
             return style.FirstOrDefault();
         }
-
 
         private List<TileStyle> StylesSelector(List<TileCategory> listcat,TileCategory category )
         {
@@ -236,5 +247,7 @@ namespace TilesInfo
             }
             return cat;
         }
+
+        #endregion
     }
 }

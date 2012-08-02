@@ -7,6 +7,7 @@ namespace OpenUO.MapMaker.MapMaking
 {
     public class Globals
     {
+        
         public static List<string> names = new List<string>()
                                                {
                                                    @"FeluccaML[7168,4096]",

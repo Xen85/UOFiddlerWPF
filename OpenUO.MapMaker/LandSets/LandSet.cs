@@ -14,6 +14,9 @@ using OpenUO.MapMaker.Elements.Textures;
 
 namespace OpenUO.MapMaker.LandSets
 {
+    /// <summary>
+    /// note : i thought to this but not use it yet
+    /// </summary>
     public class LandSet
     {
         #region Personal ID

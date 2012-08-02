@@ -2,15 +2,33 @@
   <RecentFiles>
     <RecentFiles>
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/f:MainWindow.xaml.cs" caret="0" fromTop="0" />
-      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/f:MakeMapSDK.cs" caret="9255" fromTop="15" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="12000" fromTop="0" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml.cs" caret="731" fromTop="15" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/d:LandSets/f:LandSet.cs" caret="560" fromTop="17" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/d:MapMaking/f:BitmapReader.cs" caret="0" fromTop="0" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/d:MapMaking/f:MapMaker.cs" caret="0" fromTop="0" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/d:MapMaking/f:Globals.cs" caret="173" fromTop="9" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/f:MakeMapSDK.cs" caret="5906" fromTop="19" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="9705" fromTop="16" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/d:Components/d:MultiStruct/f:MultiTile.cs" caret="0" fromTop="0" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/d:Components/d:MultiStruct/f:MultiTileList.cs" caret="0" fromTop="0" />
     </RecentFiles>
     <RecentEdits>
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="25615" fromTop="8" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="22726" fromTop="8" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="5814" fromTop="47" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml.cs" caret="746" fromTop="16" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/d:LandSets/f:LandSet.cs" caret="560" fromTop="17" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/d:MapMaking/f:Globals.cs" caret="173" fromTop="9" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/f:MakeMapSDK.cs" caret="714" fromTop="6" />
+      <File id="2F25DC15-7C8B-4C57-8C31-E33DEE517E7B/f:MakeMapSDK.cs" caret="2297" fromTop="15" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="673" fromTop="16" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="946" fromTop="12" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="1603" fromTop="7" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="10360" fromTop="22" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="2437" fromTop="2" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="9285" fromTop="13" />
+      <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="9705" fromTop="16" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
@@ -78,7 +96,7 @@
       <Item value="_Id" priority="31" />
       <Item value="changeId`0" priority="31" />
       <Item value="value" priority="1107" />
-      <Item value="#endif" priority="223" />
+      <Item value="#endif" priority="383" />
       <Item value="#endregion" priority="94" />
       <Item value="static" priority="411" />
       <Item value="SkillCategory`0" priority="95" />

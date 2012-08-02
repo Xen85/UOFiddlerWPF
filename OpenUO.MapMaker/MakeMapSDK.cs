@@ -21,6 +21,7 @@ namespace OpenUO.MapMaker
 {
     public class MakeMapSDK
     {
+        #region props
         #region Text
 
         public ColorAreas ColorArea { get; set; }
@@ -80,6 +81,8 @@ namespace OpenUO.MapMaker
         public BitmapReader BitMap { get; set; }
 
         public BitmapReader BitMapZ { get; set; }
+
+        #endregion
 
         #endregion
 
