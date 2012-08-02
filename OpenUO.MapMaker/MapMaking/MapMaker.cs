@@ -17,15 +17,17 @@ namespace OpenUO.MapMaker.MapMaking
 {
     public class MapMaker
     {
+        #region Fields
         public static Random Random { get; set; }
         public int MinX = 2;
         public int MinY = 2;
         private readonly int _stride;
         private int[] _directions;
+        #endregion
 
         #region props
         #region scripts
-        
+
         #region scripts for areas
         public ColorAreas ColorAreas { get; set; }
         public ColorAreas ColorAreasCoast { get; set; }
@@ -163,6 +165,7 @@ namespace OpenUO.MapMaker.MapMaking
         #region Methods
 
         #region Make
+
         /// <summary>
         /// main method to build the map
         /// </summary>
