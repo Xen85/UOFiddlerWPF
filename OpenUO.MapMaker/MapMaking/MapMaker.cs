@@ -198,6 +198,7 @@ namespace OpenUO.MapMaker.MapMaking
                     MakeCliffs(x, y);
                     SmoothItemCheck(x, y);
                 }
+            _directions = null;
 
             if(AutomaticZMode)
                 ProcessZ(1);
@@ -383,12 +384,11 @@ namespace OpenUO.MapMaker.MapMaking
             var listSmooth = TxtureSmooth.FindFromByColor(BitmapMap[CalculateZone(x,y)]);
             if(listSmooth.Count()== 0)
                 return;
-            var location = CalculateZone(x, y);
-            Color A = BitmapMap[location];
+            Color A = BitmapMap[_directions[(int)Directions.Location]];
             int special = 0;
             int z = 0;
 
-            if (_MapOcc[location] == 0)
+            if (_MapOcc[_directions[(int)Directions.Location]] == 0)
             {
                 // x = nicht def.
 
@@ -402,7 +402,7 @@ namespace OpenUO.MapMaker.MapMaking
 
                     var smoothT = Smooth(listSmooth, x1, y1);
 
-                    _MapID[location] = RandomFromList(smoothT.Border.Forth.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Border.Forth.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.NorthEast]] + _MapAlt[_directions[(int)Directions.SouthWest]];
                 }
@@ -413,7 +413,7 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x1, y1)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x1, y1);
-                    _MapID[location] = RandomFromList(smoothT.Border.Third.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Border.Third.List);
                     special = 1;
                     z = _MapAlt[_directions[(int)Directions.NorthWest]] + _MapAlt[_directions[(int)Directions.SouthEast]];
                 }
@@ -425,7 +425,7 @@ namespace OpenUO.MapMaker.MapMaking
                 {
                     var smoothT = Smooth(listSmooth, x1, y1);
                     //???? controllare, possibile errore
-                    _MapID[location] = RandomFromList(smoothT.Border.Second.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Border.Second.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.SouthWest]] + _MapAlt[_directions[(int)Directions.NorthEast]];
                 }
@@ -436,7 +436,7 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x1, y1)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x1, y1);
-                    _MapID[location] = RandomFromList(smoothT.Border.First.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Border.First.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.SouthEast]] + _MapAlt[_directions[(int)Directions.NorthWest]];
                 }
@@ -449,7 +449,7 @@ namespace OpenUO.MapMaker.MapMaking
                 {
                     var smoothT = Smooth(listSmooth, x, y1);
 
-                    _MapID[location] = RandomFromList(smoothT.Line.Third.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Line.Third.List);
                     special = 1;
                     z = _MapAlt[_directions[(int)Directions.North]] + _MapAlt[_directions[(int)Directions.South]];
                 }
@@ -459,7 +459,7 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x, y1)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x, y1);
-                    _MapID[location] = RandomFromList(smoothT.Line.First.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Line.First.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.South]] + _MapAlt[_directions[(int)Directions.North]];
                 }
@@ -470,7 +470,7 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x1, y)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x1, y);
-                    _MapID[location] = RandomFromList(smoothT.Line.Forth.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Line.Forth.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.East]] + _MapAlt[_directions[(int)Directions.West]];
                 }
@@ -481,7 +481,7 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x1, y)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x1, y);
-                    _MapID[location] = RandomFromList(smoothT.Line.Second.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Line.Second.List);
                     special = 1;
                     z = _MapAlt[_directions[(int)Directions.West]] + _MapAlt[_directions[(int)Directions.East]];
                 }
@@ -494,7 +494,7 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x1, y)] != A && BitmapMap[CalculateZone(x, y1)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x, y1);
-                    _MapID[location] = RandomFromList(smoothT.Edge.Forth.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Edge.Forth.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.NorthEast]] + _MapAlt[_directions[(int)Directions.SouthWest]];
                 }
@@ -527,16 +527,16 @@ namespace OpenUO.MapMaker.MapMaking
                 if (BitmapMap[CalculateZone(x1, y)] != A && BitmapMap[CalculateZone(x, y1)] != A)
                 {
                     var smoothT = Smooth(listSmooth, x, y1);
-                    _MapID[location] = RandomFromList(smoothT.Edge.First.List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(smoothT.Edge.First.List);
                     special = 2;
                     z = _MapAlt[_directions[(int)Directions.SouthEast]] + _MapAlt[_directions[(int)Directions.NorthWest]];
                 }
                 if (special > 0)
-                    _MapOcc[location] = 1;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
 
-                if (BitmapMapZ[location] == Color.Black)							
+                if (BitmapMapZ[_directions[(int)Directions.Location]] == Color.Black)							
                 {
-                    _MapAlt[location] = z / 2;
+                    _MapAlt[_directions[(int)Directions.Location]] = z / 2;
                 }
                 
             }
@@ -810,9 +810,8 @@ namespace OpenUO.MapMaker.MapMaking
         /// <param name="y">y param</param>
         private void MakeCliffs(int x, int y)
         {
-            var location = CalculateZone(x, y);
-            if (BitmapMap[location] != Cliffs.Color) return;				
-            _MapAlt[location] = 0;									
+            if (BitmapMap[_directions[(int)Directions.Location]] != Cliffs.Color) return;
+            _MapAlt[_directions[(int)Directions.Location]] = 0;									
 
 
             //**********************
@@ -959,17 +958,17 @@ namespace OpenUO.MapMaker.MapMaking
         void SmoothItemCheck(int x, int y)
         {
             //int special = 0;
-            var location = CalculateZone(x, y);
+            
             Color A;
             int zlev = 0;
             int buf = 0;
             Item item = new Item();
-            var smoothItem = ItemsSmooth.FindFromByColor(BitmapMap[location]);
+            var smoothItem = ItemsSmooth.FindFromByColor(BitmapMap[_directions[(int)Directions.Location]]);
             
             if (smoothItem == null)
                 return;
 
-            if ((_AddItemMap[location] == null ||_AddItemMap[location].Count == 0) && _MapOcc[location] == 0)
+            if ((_AddItemMap[_directions[(int)Directions.Location]] == null || _AddItemMap[_directions[(int)Directions.Location]].Count == 0) && _MapOcc[_directions[(int)Directions.Location]] == 0)
             {
                 //Border
                 //GB
@@ -1073,13 +1072,13 @@ namespace OpenUO.MapMaker.MapMaking
                 if (coast != null)
                 {
                     zlev = Random.Next(coast.Low, coast.Hight);
-                    item.Z = _MapAlt[location] + zlev;
+                    item.Z = _MapAlt[_directions[(int)Directions.Location]] + zlev;
                 }
 
-                if(_AddItemMap[location] == null)
-                    _AddItemMap[location] = new List<Item>();
+                if (_AddItemMap[_directions[(int)Directions.Location]] == null)
+                    _AddItemMap[_directions[(int)Directions.Location]] = new List<Item>();
 
-                _AddItemMap[location].Add(item);
+                _AddItemMap[_directions[(int)Directions.Location]].Add(item);
             }
         }
 
