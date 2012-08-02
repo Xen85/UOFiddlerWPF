@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\ContainerSet.cs" />
     <Compile Include="LandSets\LandSet.cs" />
     <Compile Include="MapMaking\BitmapReader.cs" />
     <Compile Include="Elements\BaseTypes\Base\Id.cs" />

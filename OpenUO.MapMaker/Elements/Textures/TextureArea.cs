@@ -8,9 +8,10 @@ using OpenUO.MapMaker.Elements.BaseTypes.Base;
 namespace OpenUO.MapMaker.Elements.Textures
 {
     [Serializable]
-    public class TextureArea
+    public class TextureArea : IContainerSet
     {
         public List<Textures> List { get; set; }
+        
         [NonSerialized] private Dictionary<int, Textures> _fast; 
         public TextureArea()
         {
@@ -21,20 +22,20 @@ namespace OpenUO.MapMaker.Elements.Textures
 
         public Textures FindByIndex(Id id )
         {
-            if(_fast == null)
-            {
-                _fast = new Dictionary<int, Textures>();
-                foreach (Textures texturese in List)
-                {
-                    _fast.Add(texturese.Index.Value,texturese);
-                }
-            }
-
             Textures text;
             _fast.TryGetValue(id.Value,out text);
             return text;
         }
-
+        
         #endregion
+
+        public void InitializeSeaches()
+        {
+            _fast = new Dictionary<int, Textures>();
+            foreach (Textures texturese in List)
+            {
+                _fast.Add(texturese.Index.Value, texturese);
+            }
+    }
     }
 }

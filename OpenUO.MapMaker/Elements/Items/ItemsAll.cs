@@ -8,7 +8,7 @@ using OpenUO.MapMaker.Elements.BaseTypes.Base;
 namespace OpenUO.MapMaker.Elements.Items
 {
     [Serializable]
-    public class ItemsAll
+    public class ItemsAll : IContainerSet
     {
         public List<Items> List { get; set; }
         [NonSerialized] private Dictionary<Color, Items> _items; 
@@ -25,19 +25,28 @@ namespace OpenUO.MapMaker.Elements.Items
 
         public Items SearchByColor(Color color)
         {
-            if(_items == null)
-            {
-                _items = new Dictionary<Color, Items>();
-                foreach (var itemse in List)
-                {
-                    _items.Add(itemse.Color,itemse);
-                }
-            }
             Items i;
             _items.TryGetValue(color, out i);
             return i;
         }
 
         #endregion
+
+        public void InitializeSeaches()
+        {
+            _items = new Dictionary<Color, Items>();
+
+            foreach (var itemse in List)
+            {
+                try
+                {
+                    _items.Add(itemse.Color, itemse);
+                }
+                catch(Exception)
+                {
+                    
+                }
+            }
+        }
     }
 }

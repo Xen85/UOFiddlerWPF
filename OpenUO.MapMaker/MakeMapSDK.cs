@@ -255,9 +255,11 @@ namespace OpenUO.MapMaker
             const UInt16 separator = 0;
             UInt16 sectionCounter = 0;
 
-            var colorlist = ColorArea.AllColors().ToList();
+            var colorlist = ColorArea.List.Select(c=>c.Color).ToList();
+            
             UInt16 numberOfColors = UInt16.Parse(colorlist.Count.ToString());
             sectionCounter++;
+            
             using (memory)
             {
                 using (bwriterWriter)

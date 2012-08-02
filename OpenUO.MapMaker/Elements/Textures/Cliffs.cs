@@ -7,7 +7,7 @@ using System.Text;
 namespace OpenUO.MapMaker.Elements.Textures
 {
     [Serializable]
-    public class Cliffs
+    public class Cliffs : IContainerSet
     {
         public Color Color { get; set; }
 
@@ -43,5 +43,9 @@ namespace OpenUO.MapMaker.Elements.Textures
 
         #endregion
 
+
+        public void InitializeSeaches()
+        {
+        }
     }
 }

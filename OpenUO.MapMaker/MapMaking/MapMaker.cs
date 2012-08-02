@@ -20,7 +20,8 @@ namespace OpenUO.MapMaker.MapMaking
         public static Random Random { get; set; }
         public int MinX = 2;
         public int MinY = 2;
-        private int _stride; 
+        private readonly int _stride;
+        private int[] _directions;
 
         #region props
         #region scripts
@@ -76,12 +77,13 @@ namespace OpenUO.MapMaker.MapMaking
         /// </summary>
         private readonly List<Item>[] _AddItemMap;
 
-        /// <summary>
-        /// temp copy of the map
-        /// </summary>
-        private readonly Color[] _Tmp;
+        ///// <summary>
+        ///// temp copy of the map
+        ///// </summary>
+        //private readonly Color[] _Tmp;
 
         #endregion
+
         /// <summary>
         /// directory where you're going to write your mul files
         /// </summary>
@@ -140,8 +142,8 @@ namespace OpenUO.MapMaker.MapMaking
             _AddItemMap = new List<Item>[lenght];
             _AddItemMap.Initialize();
             
-            _Tmp = new Color[lenght];
-            _Tmp.Initialize();
+            //_Tmp = new Color[lenght];
+            //_Tmp.Initialize();
 
             #endregion
 
@@ -166,6 +168,21 @@ namespace OpenUO.MapMaker.MapMaking
         /// </summary>
         public void Bmp2Map()
         {
+
+            #region initialize data search
+            ColorAreas.InitializeSeaches();
+            ColorAreasCoast.InitializeSeaches();
+            ColorMountainsAreas.InitializeSeaches();
+
+            Items.InitializeSeaches();
+            ItemsCoasts.InitializeSeaches();
+            ItemsSmooth.InitializeSeaches();
+
+            TextureAreas.InitializeSeaches();
+            TxtureSmooth.InitializeSeaches();
+            Cliffs.InitializeSeaches();
+            #endregion
+
             BMP2MUL();
 
 
@@ -175,7 +192,8 @@ namespace OpenUO.MapMaker.MapMaking
                 for (var y = MinY; y < _Y-1; y++)
                 {
                     //MakeCoastCheck(x, y);
-                    MakeCoast2(x,y);
+                    _directions = MakeIndexesDirections(x, y, 1);
+                    MakeCoast();
                     SmoothTilesCheck(x, y);
                     MakeCliffs(x, y);
                     SmoothItemCheck(x, y);
@@ -293,42 +311,45 @@ namespace OpenUO.MapMaker.MapMaking
         {
             int chk = 1;
             //rrggbb
-            var mountcolors = ColorMountainsAreas.AllColors();
             
             for (int x = 0; x < _X; x++)
             {
                 for (int y = 0; y < _Y; y++)
                 {
-                    if (mountcolors.Contains(BitmapMap[CalculateZone(x,y)]))
-                        _MapOcc[CalculateZone(x,y)] = 20;
+                    var location = CalculateZone(x, y);
+                    if (ColorMountainsAreas.Contains(BitmapMap[location]))
+                        _MapOcc[location] = 20;
                 }
             }
 
             for (int x = MinX; x < _X; x++)
                 for (int y = MinY; y < _Y; y++)
                 {
+
+                    var location = CalculateZone(x, y);
                     chk = 1;
                     var mountset = ColorMountainsAreas.FindMountainByColor(BitmapMap[CalculateZone(x,y)]);
                     if (mountset == null) continue;
 
-                    _MapID[CalculateZone(x,y)] = RandomTexture(mountset.IndexMountainGroup);
-                    _MapAlt[CalculateZone(x,y)] = Random.Next(mountset.List.First().From, mountset.List.First().To);
+                    _MapID[location] = RandomTexture(mountset.IndexMountainGroup);
+                    _MapAlt[location] = Random.Next(mountset.List.First().From, mountset.List.First().To);
                     chk = mountset.IndexMountainGroup.Value;
                     if (!mountset.ModeAutomatic) continue;
                         
                     for (int index = 0; index < mountset.List.Count; index++)
                     {
                         var i = index*2;
+                        var directions = MakeIndexesDirections(x, y, i);
                         var cirlce = mountset.List[index];
-                        if (_MapOcc[CalculateZone(x, y - i)] != 0 && _MapOcc[CalculateZone(x + i, y - i)] != 0 && _MapOcc[CalculateZone(x + i, y)] != 0 &&
-                            _MapOcc[CalculateZone(x + i, y + i)] != 0 && _MapOcc[CalculateZone(x, y + i)] != 0 && _MapOcc[CalculateZone(x - i, y + i)] != 0 &&
-                            _MapOcc[CalculateZone(x - i, y)] != 0 && _MapOcc[CalculateZone(x - i, y - i)] != 0)
+                        if (_MapOcc[directions[(int)Directions.North]] != 0 && _MapOcc[directions[(int)Directions.NorthEast]] != 0 && _MapOcc[directions[(int)Directions.East]] != 0 &&
+                            _MapOcc[directions[(int)Directions.SouthEast]] != 0 && _MapOcc[directions[(int)Directions.South]] != 0 && _MapOcc[directions[(int)Directions.SouthWest]] != 0 &&
+                            _MapOcc[directions[(int)Directions.West]] != 0 && _MapOcc[directions[(int)Directions.NorthWest]] != 0)
                         {
-                            _MapAlt[CalculateZone(x,y)] = Random.Next(cirlce.From, cirlce.To);
-                            if (_MapAlt[CalculateZone(x,y)] > 127)
-                                _MapAlt[CalculateZone(x,y)] = Random.Next(120, 125);
-                            if (mountset.ColorMountain != Color.Black && (_MapAlt[CalculateZone(x,y)] > 115 || i > 8))
-                                _MapOcc[CalculateZone(x,y)] = chk;
+                            _MapAlt[location] = Random.Next(cirlce.From, cirlce.To);
+                            if (_MapAlt[location] > 127)
+                                _MapAlt[location] = Random.Next(120, 125);
+                            if (mountset.ColorMountain != Color.Black && (_MapAlt[location] > 115 || i > 8))
+                                _MapOcc[location] = chk;
                         }
                     }
                 }
@@ -336,14 +357,15 @@ namespace OpenUO.MapMaker.MapMaking
             for (int x = MinX; x < _X; x++)
                 for (int y = MinY; y < _Y; y++)
                 {
-                    if (_MapOcc[CalculateZone(x,y)] == 20)
-                        _MapOcc[CalculateZone(x,y)] = 0;
-                    if (_MapOcc[CalculateZone(x,y)] <= 0) continue;
+                    var location = CalculateZone(x, y);
+                    if (_MapOcc[location] == 20)
+                        _MapOcc[location] = 0;
+                    if (_MapOcc[location] <= 0) continue;
                     
-                    var mountset = ColorMountainsAreas.FindTopMountainsById(new Id() {Value = _MapOcc[CalculateZone(x,y)]});
-                    BitmapMap[CalculateZone(x,y)] = mountset.ColorMountain;
-                    _MapID[CalculateZone(x,y)] = RandomTexture(mountset.IndexMountainGroup);
-                    _MapOcc[CalculateZone(x,y)] = 0;
+                    var mountset = ColorMountainsAreas.FindMountainById(new Id() {Value = _MapOcc[location]});
+                    BitmapMap[location] = mountset.ColorMountain;
+                    _MapID[location] = RandomTexture(mountset.IndexMountainGroup);
+                    _MapOcc[location] = 0;
                 }
         }
 
@@ -382,7 +404,7 @@ namespace OpenUO.MapMaker.MapMaking
 
                     _MapID[location] = RandomFromList(smoothT.Border.Forth.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x + 1, y - 1)] + _MapAlt[CalculateZone(x - 1, y + 1)];
+                    z = _MapAlt[_directions[(int)Directions.NorthEast]] + _MapAlt[_directions[(int)Directions.SouthWest]];
                 }
                 x1 = x - 1;
                 y1 = y -1;
@@ -393,7 +415,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x1, y1);
                     _MapID[location] = RandomFromList(smoothT.Border.Third.List);
                     special = 1;
-                    z = _MapAlt[CalculateZone(x - 1, y - 1)] + _MapAlt[CalculateZone(x + 1, y + 1)];
+                    z = _MapAlt[_directions[(int)Directions.NorthWest]] + _MapAlt[_directions[(int)Directions.SouthEast]];
                 }
                 //GA
                 //BG
@@ -405,7 +427,7 @@ namespace OpenUO.MapMaker.MapMaking
                     //???? controllare, possibile errore
                     _MapID[location] = RandomFromList(smoothT.Border.Second.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x - 1, y + 1)] + _MapAlt[CalculateZone(x + 1, y - 1)];
+                    z = _MapAlt[_directions[(int)Directions.SouthWest]] + _MapAlt[_directions[(int)Directions.NorthEast]];
                 }
                 //Ax
                 //xB
@@ -416,7 +438,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x1, y1);
                     _MapID[location] = RandomFromList(smoothT.Border.First.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x + 1, y + 1)] + _MapAlt[CalculateZone(x - 1, y - 1)];
+                    z = _MapAlt[_directions[(int)Directions.SouthEast]] + _MapAlt[_directions[(int)Directions.NorthWest]];
                 }
 
                 //Line
@@ -429,7 +451,7 @@ namespace OpenUO.MapMaker.MapMaking
 
                     _MapID[location] = RandomFromList(smoothT.Line.Third.List);
                     special = 1;
-                    z = _MapAlt[CalculateZone(x, y - 1)] + _MapAlt[CalculateZone(x, y + 1)];
+                    z = _MapAlt[_directions[(int)Directions.North]] + _MapAlt[_directions[(int)Directions.South]];
                 }
                 //xAx
                 // B
@@ -439,7 +461,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x, y1);
                     _MapID[location] = RandomFromList(smoothT.Line.First.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x, y + 1)] + _MapAlt[CalculateZone(x, y - 1)];
+                    z = _MapAlt[_directions[(int)Directions.South]] + _MapAlt[_directions[(int)Directions.North]];
                 }
                 //x
                 //AB
@@ -450,7 +472,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x1, y);
                     _MapID[location] = RandomFromList(smoothT.Line.Forth.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x + 1, y)] + _MapAlt[CalculateZone(x - 1, y)];
+                    z = _MapAlt[_directions[(int)Directions.East]] + _MapAlt[_directions[(int)Directions.West]];
                 }
                 // x
                 //BA
@@ -461,7 +483,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x1, y);
                     _MapID[location] = RandomFromList(smoothT.Line.Second.List);
                     special = 1;
-                    z = _MapAlt[CalculateZone(x - 1, y)] + _MapAlt[CalculateZone(x + 1, y)];
+                    z = _MapAlt[_directions[(int)Directions.West]] + _MapAlt[_directions[(int)Directions.East]];
                 }
 
                 //Edge
@@ -474,7 +496,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x, y1);
                     _MapID[location] = RandomFromList(smoothT.Edge.Forth.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x + 1, y - 1)] + _MapAlt[CalculateZone(x - 1, y + 1)];
+                    z = _MapAlt[_directions[(int)Directions.NorthEast]] + _MapAlt[_directions[(int)Directions.SouthWest]];
                 }
                 // B
                 //BA
@@ -485,7 +507,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x, y1);
                     _MapID[CalculateZone(x,y)] = RandomFromList(smoothT.Edge.Third.List);
                     special = 1;
-                    z = _MapAlt[CalculateZone(x - 1, y - 1)] + _MapAlt[CalculateZone(x + 1, y + 1)];
+                    z = _MapAlt[_directions[(int)Directions.NorthWest]] + _MapAlt[_directions[(int)Directions.SouthEast]];
                 }
                 //BA
                 // B
@@ -496,7 +518,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x, y1);
                     _MapID[CalculateZone(x,y)] = RandomFromList(smoothT.Edge.Second.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x - 1, y + 1)] + _MapAlt[CalculateZone(x + 1, y - 1)];
+                    z = _MapAlt[_directions[(int)Directions.SouthWest]] + _MapAlt[_directions[(int)Directions.NorthEast]];
                 }
                 //AB
                 //B
@@ -507,7 +529,7 @@ namespace OpenUO.MapMaker.MapMaking
                     var smoothT = Smooth(listSmooth, x, y1);
                     _MapID[location] = RandomFromList(smoothT.Edge.First.List);
                     special = 2;
-                    z = _MapAlt[CalculateZone(x + 1, y + 1)] + _MapAlt[CalculateZone(x - 1, y - 1)];
+                    z = _MapAlt[_directions[(int)Directions.SouthEast]] + _MapAlt[_directions[(int)Directions.NorthWest]];
                 }
                 if (special > 0)
                     _MapOcc[location] = 1;
@@ -542,316 +564,205 @@ namespace OpenUO.MapMaker.MapMaking
         #region Coasts
 
         #region coast
-        /// <summary>
-        /// function to use if you didn't make a good coast bmp
-        /// </summary>
-        void CoastBMP()
-        {
-            int x, y;
-            Color A, B;
-            int z = 2;
+        
+        ///// <summary>
+        ///// function to use if you didn't make a good coast bmp
+        ///// </summary>
+        //void CoastBMP()
+        //{
+        //    int x, y;
+        //    Color A, B;
+        //    int z = 2;
 
-                for (x = Math.Max(2, MinX); x < _X; x++)
-                    for (y = Math.Max(2, MinY); y < _Y; y++)
-                    {
-                        A = ColorAreasCoast.List[0].Color;
-                        B = ColorAreasCoast.List[1].Color;
-                        if (BitmapMap[CalculateZone(x,y)] == A)
-                        {
-                            //Seiten
-                            if (BitmapMap[CalculateZone(x, y - z)] != A && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x + 1, y)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x, y + z)] != A && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x + 1, y)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x + z, y)] != A && BitmapMap[CalculateZone(x, y - 1)] == A && BitmapMap[CalculateZone(x, y + 1)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x - z, y)] != A && BitmapMap[CalculateZone(x, y - 1)] == A && BitmapMap[CalculateZone(x, y + 1)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            //Kanten
-                            if (BitmapMap[CalculateZone(x + z, y - z)] != A && BitmapMap[CalculateZone(x + 1, y)] == A && BitmapMap[CalculateZone(x, y - 1)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x - z, y - z)] != A && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x, y - 1)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x - z, y + z)] != A && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x, y + 1)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x + z, y + z)] != A && BitmapMap[CalculateZone(x + 1, y)] == A && BitmapMap[CalculateZone(x, y + 1)] == A) _Tmp[CalculateZone(x, y)] = B;
-                            //ECKEN
-                            if (BitmapMap[CalculateZone(x + z, y)] != A && BitmapMap[CalculateZone(x, y - z)] != A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x - z, y)] != A && BitmapMap[CalculateZone(x, y - z)] != A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x - z, y)] != A && BitmapMap[CalculateZone(x, y + z)] != A) _Tmp[CalculateZone(x, y)] = B;
-                            if (BitmapMap[CalculateZone(x + z, y)] != A && BitmapMap[CalculateZone(x, y + z)] != A) _Tmp[CalculateZone(x, y)] = B;
-                        }
-                    }
+        //        for (x = Math.Max(2, MinX); x < _X; x++)
+        //            for (y = Math.Max(2, MinY); y < _Y; y++)
+        //            {
+        //                A = ColorAreasCoast.List[0].Color;
+        //                B = ColorAreasCoast.List[1].Color;
+        //                if (BitmapMap[CalculateZone(x,y)] == A)
+        //                {
+        //                    //Seiten
+        //                    if (BitmapMap[CalculateZone(x, y - z)] != A && BitmapMap[_directions[(int)Directions.West]] == A && BitmapMap[_directions[(int)Directions.East]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x, y + z)] != A && BitmapMap[_directions[(int)Directions.West]] == A && BitmapMap[_directions[(int)Directions.East]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x + z, y)] != A && BitmapMap[_directions[(int)Directions.North]] == A && BitmapMap[_directions[(int)Directions.South]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x - z, y)] != A && BitmapMap[_directions[(int)Directions.North]] == A && BitmapMap[_directions[(int)Directions.South]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    //Kanten
+        //                    if (BitmapMap[CalculateZone(x + z, y - z)] != A && BitmapMap[_directions[(int)Directions.East]] == A && BitmapMap[_directions[(int)Directions.North]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x - z, y - z)] != A && BitmapMap[_directions[(int)Directions.West]] == A && BitmapMap[_directions[(int)Directions.North]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x - z, y + z)] != A && BitmapMap[_directions[(int)Directions.West]] == A && BitmapMap[_directions[(int)Directions.South]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x + z, y + z)] != A && BitmapMap[_directions[(int)Directions.East]] == A && BitmapMap[_directions[(int)Directions.South]] == A) _Tmp[CalculateZone(x, y)] = B;
+        //                    //ECKEN
+        //                    if (BitmapMap[CalculateZone(x + z, y)] != A && BitmapMap[CalculateZone(x, y - z)] != A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x - z, y)] != A && BitmapMap[CalculateZone(x, y - z)] != A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x - z, y)] != A && BitmapMap[CalculateZone(x, y + z)] != A) _Tmp[CalculateZone(x, y)] = B;
+        //                    if (BitmapMap[CalculateZone(x + z, y)] != A && BitmapMap[CalculateZone(x, y + z)] != A) _Tmp[CalculateZone(x, y)] = B;
+        //                }
+        //            }
 
 
-                for (x = Math.Max(2, MinX); x < _X; x++)
-                    for (y = Math.Max(2, MinY); y < _Y; y++)
-                        if (_Tmp[CalculateZone(x,y)] != Color.Black)
-                            BitmapMap[CalculateZone(x,y)] = _Tmp[CalculateZone(x,y)];
+        //        for (x = Math.Max(2, MinX); x < _X; x++)
+        //            for (y = Math.Max(2, MinY); y < _Y; y++)
+        //                if (_Tmp[CalculateZone(x,y)] != Color.Black)
+        //                    BitmapMap[CalculateZone(x,y)] = _Tmp[CalculateZone(x,y)];
             
             
-        }
+        //}
 
         /// <summary>
-        /// method used to make coasts
+        /// Make Coast method, it search if the given parameter is a coast or not
         /// </summary>
-        /// <param name="x">x coord</param>
-        /// <param name="y">y coord</param>
-        private void MakeCoastCheck(int x, int y)
+        private void MakeCoast()
         {
-            var location = CalculateZone(x, y);
-            Color A = new Color();
-            Color B = new Color();
-            int ID = 0, zlev = 0;
-            int off = 1;
-            Color colorToFind = BitmapMap[CalculateZone(x, y)];
-            if (ColorAreasCoast.FindByColor(colorToFind) == null || colorToFind==ColorAreasCoast.List[0].Color)
-                return;
-
-            if (ItemsCoasts.AllColorsCoast().Contains(colorToFind))
-            {
-                //Lones
-                //  L 
-                // WxW
-                SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x, y - 1)], BitmapMap[CalculateZone(x + 1, y)], 2, LineType.Line, -4, 2);
-                // WxW
-                //  L 
-                if (SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x, y + 1)], BitmapMap[CalculateZone(x + 1, y)], 0, LineType.Line, 0, 0))
-                   
-                {
-                    _MapAlt[location] = -15;
-                }
-                // W
-                // xL 
-                // W
-
-                if (SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x, y - 1)], BitmapMap[CalculateZone(x + 1, y)], BitmapMap[CalculateZone(x, y + 1)], 3, LineType.Line, 0, 0))
-                {
-                    _MapAlt[location] = -15;
-                }
-                //  W
-                // Lx
-                //  W
-                SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x, y - 1)], BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x, y + 1)], 1,
-                             LineType.Line,-4,2);
-                
-
-                //Border
-                // WL
-                // xW
-                if (SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x + 1, y)], BitmapMap[CalculateZone(x + 1, y - 1)], BitmapMap[CalculateZone(x, y - 1)], 7,
-                             LineType.Border,0,0))
-                {
-                    _MapAlt[location] = -15;
-                }
-                // LW
-                // Wx
-                SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x - 1, y - 1)], BitmapMap[CalculateZone(x, y - 1)], 6,
-                             LineType.Border, -2, 2);
-                
-                // Wx
-                // LW
-                if (SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x - 1, y + 1)], BitmapMap[CalculateZone(x, y + 1)], 5,
-                             LineType.Border, 0, 0))
-                {
-                    _MapAlt[location] = -15;
-                }
-                // xW
-                // WL
-                if (SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x + 1, y)], BitmapMap[CalculateZone(x + 1, y + 1)], BitmapMap[CalculateZone(x, y + 1)], 4,
-                             LineType.Border, 0, 0))
-                {
-                    _MapAlt[location] = -15;
-                }
-                //Edge
-                // LL
-                // xL
-                SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x + 1, y)], BitmapMap[CalculateZone(x + 1, y - 1)], BitmapMap[CalculateZone(x + 1, y)], 11,
-                             LineType.Edge, -3, 0);
-                
-                // LL
-                // Lx
-                SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x - 1, y - 1)], BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x, y - 1)], 10,
-                            LineType.Edge, -3, 0);
-                
-                // Lx
-                // LL
-                SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x - 1, y + 1)], BitmapMap[CalculateZone(x - 1, y)], BitmapMap[CalculateZone(x, y + 1)], 9,
-                            LineType.Edge, -3, 0);
-                
-                // xL
-                // LL
-                if (SetCoastLine(x, y, ref ID, BitmapMap[CalculateZone(x + 1, y + 1)], BitmapMap[CalculateZone(x + 1, y)], BitmapMap[CalculateZone(x, y + 1)], 8,
-                            LineType.Edge, 0, 0))
-                {
-                    _MapAlt[location] = -9;
-                }
-
-                if (ID != 0)
-                {
-                    
-                    off = 0;
-                    var locationOff = CalculateZone(x + off, y + off);
-                    if (_AddItemMap[locationOff] == null)
-                        _AddItemMap[locationOff] = new List<Item>();
-                    _AddItemMap[locationOff].Add(new Item() { Id = new ItemID() { Value = ID }, Hue = 0, X = 0, Y = 0, Z = 0 });
-                    
-                    var coast = ColorAreasCoast.FindByColor(BitmapMap[location]);
-                    
-                    if (coast != null)
-                        _AddItemMap[CalculateZone(x + off, y + off)].First().Z = Random.Next(coast.Low, coast.Hight) +
-                                                                      _MapAlt[locationOff];
-                }
-            }
-
-        }
-
-        private void MakeCoast2(int x, int y)
-        {
-            var location = CalculateZone(x, y);
-            Color A = BitmapMap[location];
+            Color Water = BitmapMap[_directions[(int)Directions.Location]];
             int ID = 0;
-            if(!ItemsCoasts.AllColorsCoast().Contains(A))
+            if(!ItemsCoasts.FindCoastByColor(Water))
                 return;
             
 
-            foreach (var i in ItemsCoasts.List.Where(i => i.Coast.Color == A))
+            foreach (var i in ItemsCoasts.List.Where(i => i.Coast.Color == Water))
             {
                 Boolean found = false;
                 //  L 
                 // WxW
-                if (BitmapMap[CalculateZone(x, y - 1)] == i.Ground.Color && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x + 1, y)] == A)
+                if (BitmapMap[_directions[(int)Directions.North]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.West]] == Water && BitmapMap[_directions[(int)Directions.East]] == Water)
                 {
                     //num 2 
-                    _MapID[location] = RandomFromList(i.Ground.Lines[2/4].List[2%4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[2 / 4].List[2 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[2/4].List[2%4].List);
                     //MapAlt(x,y)=RandomNum(-4, 2);
-                    _MapAlt[location] = -15;
-                    _MapOcc[location] = 1;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
                     found = true;
                 }
                 // WxW
                 //  L 
-                if (! found && BitmapMap[CalculateZone(x, y + 1)] == i.Ground.Color && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x + 1, y)] == A)
+                if (BitmapMap[_directions[(int)Directions.South]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.West]] == Water && BitmapMap[_directions[(int)Directions.East]] == Water)
                 {
                     //num 0
-                    _MapID[location] = RandomFromList(i.Ground.Lines[0 / 4].List[0 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[0 / 4].List[0 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[0 / 4].List[0 % 4].List);
-                    _MapAlt[location] = -15;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
                     found = true;
                 }
                 // W
                 // xL 
                 // W
-                if (!found && BitmapMap[CalculateZone(x + 1, y)] == i.Ground.Color && BitmapMap[CalculateZone(x, y - 1)] == A && BitmapMap[CalculateZone(x, y + 1)] == A)
+                if (BitmapMap[_directions[(int)Directions.East]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.North]] == Water && BitmapMap[_directions[(int)Directions.South]] == Water)
                 {
                     //3
-                    _MapID[location] = RandomFromList(i.Ground.Lines[3 / 4].List[3 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[3 / 4].List[3 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[3 / 4].List[3 % 4].List);
-                    _MapAlt[location] = -15;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
                     found = true;
                 }
                 //  W
                 // Lx
                 //  W
-                if (!found && BitmapMap[CalculateZone(x - 1, y)] == i.Ground.Color && BitmapMap[CalculateZone(x, y - 1)] == A && BitmapMap[CalculateZone(x, y + 1)] == A)
+                if (BitmapMap[_directions[(int)Directions.West]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.North]] == Water && BitmapMap[_directions[(int)Directions.South]] == Water)
                 {
                     //1
-                    _MapID[location] = RandomFromList(i.Ground.Lines[1 / 4].List[1 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[1 / 4].List[1 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[1 / 4].List[1 % 4].List);
                     //if (neu.spezial != 2)
                     //    MapAlt(x, y) = RandomNum(-4, 2);
-                    _MapAlt[location] = -15;
-                    _MapOcc[location] = 1;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
                     found = true;
                 }
 
                 //Kanten
                 // WL
                 // xW
-                if (!found && BitmapMap[CalculateZone(x + 1, y - 1)] == i.Ground.Color && BitmapMap[CalculateZone(x + 1, y)] == A && BitmapMap[CalculateZone(x, y - 1)] == A)
+                if (BitmapMap[_directions[(int)Directions.NorthEast]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.East]] == Water && BitmapMap[_directions[(int)Directions.North]] == Water)
                 {
                     //7
-                    _MapID[location] = RandomFromList(i.Ground.Lines[7 / 4].List[7 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[7 / 4].List[7 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[7 / 4].List[7 % 4].List);
-                    _MapAlt[location] = -15;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
                     found = true;
                 }
                 // LW
                 // Wx
-                if (! found && BitmapMap[CalculateZone(x - 1, y - 1)] == i.Ground.Color && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x, y - 1)] == A)
+                if (BitmapMap[_directions[(int)Directions.NorthWest]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.West]] == Water && BitmapMap[_directions[(int)Directions.North]] == Water)
                 {
                     //6
-                    _MapID[location] = RandomFromList(i.Ground.Lines[6 / 4].List[6 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[6 / 4].List[6 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[6 / 4].List[6 % 4].List);
                     //if (neu.spezial != 2)
                     //    MapAlt(x, y) = RandomNum(-2, 2);
-                    _MapAlt[location] = -15;
-                    _MapOcc[location] = 1;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
                     found = true;
                 }
                 // Wx
                 // LW
-                if (!found && BitmapMap[CalculateZone(x - 1, y + 1)] == i.Ground.Color && BitmapMap[CalculateZone(x - 1, y)] == A && BitmapMap[CalculateZone(x, y + 1)] == A)
+                if (BitmapMap[_directions[(int)Directions.SouthWest]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.West]] == Water && BitmapMap[_directions[(int)Directions.South]] == Water)
                 {
                     //5
-                    _MapID[location] = RandomFromList(i.Ground.Lines[5 / 4].List[5 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[5 / 4].List[5 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[5 / 4].List[5 % 4].List);
-                    _MapAlt[location] = -15;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
                     found = true;
                 }
                 // xW
                 // WL
-                if (!found && BitmapMap[CalculateZone(x + 1, y + 1)] == i.Ground.Color && BitmapMap[CalculateZone(x + 1, y)] == A && BitmapMap[CalculateZone(x, y + 1)] == A)
+                if (BitmapMap[_directions[(int)Directions.SouthEast]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.East]] == Water && BitmapMap[_directions[(int)Directions.South]] == Water)
                 {
                     //4
-                    _MapID[location] = RandomFromList(i.Ground.Lines[4 / 4].List[4 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[4 / 4].List[4 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[4 / 4].List[4 % 4].List);
-                    _MapAlt[location] = -15;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
                     found = true;
                 }
                 //Ecken
                 // LL
                 // xL
-                if (!found && BitmapMap[CalculateZone(x + 1, y - 1)] == i.Ground.Color && BitmapMap[CalculateZone(x + 1, y)] == i.Ground.Color && BitmapMap[CalculateZone(x, y - 1)] == i.Ground.Color)
+                if (BitmapMap[_directions[(int)Directions.NorthEast]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.East]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.North]] == i.Ground.Color)
                 {
                     //11
-                    _MapID[location] = RandomFromList(i.Ground.Lines[11 / 4].List[11 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[11 / 4].List[11 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[11 / 4].List[11 % 4].List); 
                     //if (neu.spezial != 2)
                     //    MapAlt(x, y) = RandomNum(-3, 0);
-                    _MapAlt[location] = -15;
-                    _MapOcc[location] = 1;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
                     found = true;
                 }
                 // LL
                 // Lx
-                if (!found && BitmapMap[CalculateZone(x - 1, y - 1)] == i.Ground.Color && BitmapMap[CalculateZone(x - 1, y)] == i.Ground.Color && BitmapMap[CalculateZone(x, y - 1)] == i.Ground.Color)
+                if (BitmapMap[_directions[(int)Directions.NorthWest]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.West]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.North]] == i.Ground.Color)
                 {
                     //10
-                    _MapID[location] = RandomFromList(i.Ground.Lines[10 / 4].List[10 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[10 / 4].List[10 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[10 / 4].List[10 % 4].List); 
                     //if (neu.spezial != 2)
                     //    MapAlt(x, y) = RandomNum(-3, 0);
-                    _MapAlt[location] = -15;
-                    _MapOcc[location] = 1;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
                     found = true;
                 }
                 // Lx
                 // LL
-                if (!found && BitmapMap[CalculateZone(x - 1, y + 1)] == i.Ground.Color && BitmapMap[CalculateZone(x - 1, y)] == i.Ground.Color && BitmapMap[CalculateZone(x, y + 1)] == i.Ground.Color)
+                if (BitmapMap[_directions[(int)Directions.SouthWest]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.West]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.South]] == i.Ground.Color)
                 {
                     //9
-                    _MapID[location] = RandomFromList(i.Ground.Lines[9 / 4].List[9 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[9 / 4].List[9 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[9 / 4].List[9 % 4].List);
                     //if (neu.spezial != 2)
                     //if (neu.spezial != 2)
                     //    MapAlt(x, y) = RandomNum(-3, 0);
-                    _MapAlt[location] = -15;
-                    _MapOcc[location] = 1;
+                    _MapAlt[_directions[(int)Directions.Location]] = -15;
+                    _MapOcc[_directions[(int)Directions.Location]] = 1;
                     found = true;
                 }
                 // xL
                 // LL
-                if (!found && BitmapMap[CalculateZone(x + 1, y + 1)] == i.Ground.Color && BitmapMap[CalculateZone(x + 1, y)] == i.Ground.Color && BitmapMap[CalculateZone(x, y + 1)] == i.Ground.Color)
+                if (BitmapMap[_directions[(int)Directions.SouthEast]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.East]] == i.Ground.Color && BitmapMap[_directions[(int)Directions.South]] == i.Ground.Color)
                 {
                     //8
-                    _MapID[location] = RandomFromList(i.Ground.Lines[8 / 4].List[8 % 4].List);
+                    _MapID[_directions[(int)Directions.Location]] = RandomFromList(i.Ground.Lines[8 / 4].List[8 % 4].List);
                     ID = RandomFromList(i.Coast.Lines[8 / 4].List[8 % 4].List);
-                    _MapAlt[location] = -9;
+                    _MapAlt[_directions[(int)Directions.Location]] = -9;
                     found = true;
                 }
 
@@ -867,9 +778,9 @@ namespace OpenUO.MapMaker.MapMaking
                     // first revision i know of (ghoulsblade,28.07.2010) : http://zwischenwelt.org/trac/irisserver/browser/tools/uotc/src/coast.cpp?rev=4
                     // uotc: additem	*Add[XBORDER+5][YBORDER+5];
                     var item = new Item() {Id = new ItemID() {Value = ID}};
-                    if (_AddItemMap[CalculateZone(x + off, y + off)]== null) _AddItemMap[CalculateZone(x + off, y + off)] = new List<Item>();
-                    _AddItemMap[CalculateZone(x + off, y + off)].Add( item); // uotc : additem
-                    var coast = ColorAreasCoast.FindByColor(A);
+                    if (_AddItemMap[_directions[(int)Directions.Location]] == null) _AddItemMap[_directions[(int)Directions.Location]] = new List<Item>();
+                    _AddItemMap[_directions[(int)Directions.Location]].Add(item); // uotc : additem
+                    var coast = ColorAreasCoast.FindByColor(Water);
                     if (coast == null)
                         return;
 
@@ -880,7 +791,7 @@ namespace OpenUO.MapMaker.MapMaking
                     }
                     else
                     {
-                        item.Z = _MapAlt[CalculateZone(x + off, y + off)] + Random.Next(coast.Low,coast.Hight);		// Zuweisung der Coastitemshöhe über die Farbe
+                        item.Z = _MapAlt[_directions[(int)Directions.Location]] + Random.Next(coast.Low, coast.Hight);		// Zuweisung der Coastitemshöhe über die Farbe
                     }
                         
                 }
@@ -888,52 +799,6 @@ namespace OpenUO.MapMaker.MapMaking
             
         }
         
-        /// <summary>
-        /// function used to make the "dirty work"
-        /// </summary>
-        /// <param name="x">x coord</param>
-        /// <param name="y">y coord</param>
-        /// <param name="ID">id of the object that you're going to place</param>
-        /// <param name="ColorCheck">color that you want to check(usually water)</param>
-        /// <param name="ColorLand">color of the land</param>
-        /// <param name="ColorOtherMember">color of the second check (usually water)</param>
-        /// <param name="direction">direction that you're observing</param>
-        /// <param name="type">type of coast you need</param>
-        /// <param name="random1">first random number to use</param>
-        /// <param name="random2">second random number to use</param>
-        /// <returns></returns>
-        private Boolean SetCoastLine(int x, int y, ref int ID, Color ColorCheck, Color ColorLand,Color ColorOtherMember, int direction, LineType type, int random1, int random2)
-        {
-            var coast =
-                    ItemsCoasts.List.FirstOrDefault(c => c.Ground.Color == ColorLand && c.Coast.Color == BitmapMap[CalculateZone(x,y)]);
-            
-            if(type != LineType.Edge)
-            {
-                if (ColorOtherMember != ColorCheck) return false;
-                //coast =
-                //    ItemsCoasts.List.FirstOrDefault(c => c.Coast.Color == BitmapMap[CalculateZone(x,y)] && c.Ground.Color == ColorLand);
-            }
-            else
-            {
-                if (ColorOtherMember != ColorLand || ColorLand != ColorCheck) return false;
-            }
-            if (coast == null)
-                return false;
-            var location = CalculateZone(x, y);
-            var dir = direction%4;
-            var t = direction/4;
-            
-            _MapID[location] = RandomFromList(coast.Ground.Lines[t].List[dir].List);
-            ID = RandomFromList(coast.Coast.Lines[t].List[dir].List);
-            
-            var areacoast = ColorAreasCoast.List.FirstOrDefault(c => c.Color == coast.Coast.Color);
-            if (areacoast != null && (areacoast.Low != 0 && areacoast.Hight != 0))
-                _MapAlt[location] += Random.Next(areacoast.Low, areacoast.Hight);
-            else
-                _MapAlt[location] += Random.Next(random1, random2);
-            _MapOcc[location] = 1;
-            return true;
-        }
         #endregion
 
         #region Cliffs
@@ -957,7 +822,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  ? 
             // CXC
             //  ? 
-            if (BitmapMap[CalculateZone(x - 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x + 1, y)] == Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.West]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.East]] == Cliffs.Color)
             {
                 SetCliff(x, y, x, y - 1, x, y + 1, (CliffDirections)0);
             }
@@ -965,7 +830,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  C
             // ?X?
             //  C
-            if (BitmapMap[CalculateZone(x, y - 1)] == Cliffs.Color && BitmapMap[CalculateZone(x, y + 1)] == Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.North]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.South]] == Cliffs.Color)
             {
                 SetCliff(x, y, x - 1, y, x + 1, y, (CliffDirections)1);
             }
@@ -978,7 +843,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  ! 
             // ?X?
             //  C
-            if (BitmapMap[CalculateZone(x, y + 1)] == Cliffs.Color && BitmapMap[CalculateZone(x, y - 1)] != Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.South]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.North]] != Cliffs.Color)
             {
                 SetCliff(x, y, x - 1, y, x + 1, y, (CliffDirections)2);
             }
@@ -986,7 +851,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  ? 
             // CX!
             //  ?
-            if (BitmapMap[CalculateZone(x - 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x + 1, y)] != Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.West]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.East]] != Cliffs.Color)
             {
                 SetCliff(x, y, x, y - 1, x, y + 1, (CliffDirections)3);
             }
@@ -995,7 +860,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  C 
             // ?X?
             //  !
-            if (BitmapMap[CalculateZone(x, y - 1)] == Cliffs.Color && BitmapMap[CalculateZone(x, y + 1)] != Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.North]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.South]] != Cliffs.Color)
             {
                 SetCliff(x, y, x - 1, y, x + 1, y, (CliffDirections)4);
             }
@@ -1004,7 +869,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  ? 
             // !XC
             //  ?
-            if (BitmapMap[CalculateZone(x + 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x - 1, y)] != Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.East]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.West]] != Cliffs.Color)
             {
                 SetCliff(x, y, x, y + 1, x, y + 1, (CliffDirections)5);
             }
@@ -1016,7 +881,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  C 
             // CX
             //   ?
-            if (BitmapMap[CalculateZone(x - 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x, y - 1)] == Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.West]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.North]] == Cliffs.Color)
             {
                 SetCliff(x, y, x + 1, y + 1, -500, 0, (CliffDirections)6);
             }
@@ -1024,7 +889,7 @@ namespace OpenUO.MapMaker.MapMaking
             //  C 
             //  XC
             // ?
-            if (BitmapMap[CalculateZone(x + 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x, y - 1)] == Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.East]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.North]] == Cliffs.Color)
             {
                 SetCliff(x, y, x - 1, y + 1, -500, 0, (CliffDirections)7);
             }
@@ -1032,7 +897,7 @@ namespace OpenUO.MapMaker.MapMaking
             // ? 
             //  XC
             //  C
-            if (BitmapMap[CalculateZone(x + 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x, y + 1)] == Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.East]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.South]] == Cliffs.Color)
             {
                 SetCliff(x, y, x - 1, y - 1, -500, 0, (CliffDirections)8);
             }
@@ -1040,7 +905,7 @@ namespace OpenUO.MapMaker.MapMaking
             //   ?
             // CX
             //  C
-            if (BitmapMap[CalculateZone(x - 1, y)] == Cliffs.Color && BitmapMap[CalculateZone(x, y + 1)] == Cliffs.Color)
+            if (BitmapMap[_directions[(int)Directions.West]] == Cliffs.Color && BitmapMap[_directions[(int)Directions.South]] == Cliffs.Color)
             {
                 SetCliff(x, y, x + 1, y - 1, -500, 0, (CliffDirections)9);
             }
@@ -1109,81 +974,93 @@ namespace OpenUO.MapMaker.MapMaking
                 //Border
                 //GB
                 //xG
-                if (BitmapMap[CalculateZone(x + 1, y - 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.NorthEast]] != smoothItem.ColorFrom)
                 {
+                    //7
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Border.List[7%4].List)}};
                 }
                 //BG
                 //Gx
-                if (BitmapMap[CalculateZone(x - 1, y - 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.NorthWest]] != smoothItem.ColorFrom)
                 {
+                    //6
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Border.List[6%4].List)}};
                     
                 }
                 //Gx
                 //BG
-                if (BitmapMap[CalculateZone(x - 1, y + 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.SouthWest]] != smoothItem.ColorFrom)
                 {
+                    //5
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Border.List[5%4].List)}};
                 }
                 //xG
                 //GB
-                if (BitmapMap[CalculateZone(x + 1, y + 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.SouthEast]] != smoothItem.ColorFrom)
                 {
+                    //4
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Border.List[4%4].List)}};
                 }
 
                 //Line
                 // B
                 //GxG
-                if (BitmapMap[CalculateZone(x, y - 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.North]] != smoothItem.ColorFrom)
                 {
+                    //2
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Line.List[2%4].List)}};
                 }
                 //GxG
                 // B
-                if (BitmapMap[CalculateZone(x, y + 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.South]] != smoothItem.ColorFrom)
                 {
+                    //0
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Line.List[0%4].List)}};
                 }
                 //G
                 //xB
                 //G
-                if (BitmapMap[CalculateZone(x + 1, y)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.East]] != smoothItem.ColorFrom)
                 {
+                    //3
                     item = new Item { Id = { Value = RandomFromList(smoothItem.Line.List[3 % 4].List) } };
                 }
                 // G
                 //Bx
                 // G
-                if (BitmapMap[CalculateZone(x - 1, y)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.West]] != smoothItem.ColorFrom)
                 {
+                    //1
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Line.List[1%4].List)}};
                 }
 
                 //Edge
                 //B
                 //xB
-                if (BitmapMap[CalculateZone(x + 1, y)] != smoothItem.ColorFrom && BitmapMap[CalculateZone(x, y - 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.East]] != smoothItem.ColorFrom && BitmapMap[_directions[(int)Directions.North]] != smoothItem.ColorFrom)
                 {
+                    //11
                     item = new Item {Id = {Value = RandomFromList(smoothItem.Edge.List[11%4].List)}};
                 }
                 // B
                 //Bx
-                if (BitmapMap[CalculateZone(x - 1, y)] != smoothItem.ColorFrom && BitmapMap[CalculateZone(x, y - 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.West]] != smoothItem.ColorFrom && BitmapMap[_directions[(int)Directions.North]] != smoothItem.ColorFrom)
                 {
+                    //10
                     item = new Item { Id = { Value = RandomFromList(smoothItem.Edge.List[10 % 4].List) } };
                 }
                 //Bx
                 // B
-                if (BitmapMap[CalculateZone(x - 1, y)] != smoothItem.ColorFrom && BitmapMap[CalculateZone(x, y + 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.West]] != smoothItem.ColorFrom && BitmapMap[_directions[(int)Directions.South]] != smoothItem.ColorFrom)
                 {
+                    //9
                     item = new Item { Id = { Value = RandomFromList(smoothItem.Edge.List[9 % 4].List) } };
                 }
                 //xB
                 //B
-                if (BitmapMap[CalculateZone(x + 1, y)] != smoothItem.ColorFrom && BitmapMap[CalculateZone(x, y + 1)] != smoothItem.ColorFrom)
+                if (BitmapMap[_directions[(int)Directions.East]] != smoothItem.ColorFrom && BitmapMap[_directions[(int)Directions.South]] != smoothItem.ColorFrom)
                 {
+                    //8
                     item = new Item { Id = { Value = RandomFromList(smoothItem.Edge.List[8 % 4].List) } };
                 }
 
@@ -1397,11 +1274,12 @@ namespace OpenUO.MapMaker.MapMaking
         #endregion
 
         #region utility methods
+
         /// <summary>
         /// it randomly choose a texture between the ColorArea choosed
         /// </summary>
         /// <param name="id">id of the ColorArea that you're choosing</param>
-        /// <returns></returns>
+        /// <returns>return a texture from the specified id</returns>
         private int RandomTexture(Id id)
             {
                 var texture = TextureAreas.FindByIndex(id);
@@ -1439,13 +1317,58 @@ namespace OpenUO.MapMaker.MapMaking
                 return list[number].Value;
             }
         
+        /// <summary>
+        /// coordinate for x and y in linear matrix
+        /// </summary>
+        /// <param name="x">x coord</param>
+        /// <param name="y">y coord</param>
+        /// <returns></returns>
         private int CalculateZone(int x, int y)
         {
             return (y*_stride)+x;
         }
+
+        /// <summary>
+        /// array of precalculated x and y in a linear matrix
+        /// </summary>
+        /// <param name="x">x coord</param>
+        /// <param name="y">y coord</param>
+        /// <param name="shift">shifting parameter</param>
+        /// <returns>array of params</returns>
+        public int[] MakeIndexesDirections(int x, int y, int shift)
+        {
+            var array = new int[9];
+            array[(int) Directions.Location] = CalculateZone(x, y);
+            array[(int) Directions.North] = CalculateZone(x, y - shift);
+            array[(int) Directions.South] = CalculateZone(x, y + shift);
+            array[(int) Directions.East] = CalculateZone(x + shift, y);
+            array[(int) Directions.West] = CalculateZone(x - shift, y);
+            array[(int) Directions.NorthEast] = CalculateZone(x + shift, y - shift);
+            array[(int) Directions.NorthWest] = CalculateZone(x - shift, y - shift);
+            array[(int) Directions.SouthEast] = CalculateZone(x + shift, y - shift);
+            array[(int) Directions.SouthWest] = CalculateZone(x - shift, y + shift);
+            
+            return array;
+        }
+
         #endregion
 
-
         #endregion
+    }
+
+    /// <summary>
+    /// Directions for array
+    /// </summary>
+    public enum Directions
+    {
+        Location,
+        North,
+        South,
+        East,
+        West,
+        NorthWest,
+        NorthEast,
+        SouthWest,
+        SouthEast
     }
 }

@@ -1,9 +1,11 @@
 ﻿<Window
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:OpenUO_WPF_Fiddler_Converters="clr-namespace:OpenUO_WPF_Fiddler.Converters"
+	
+    xmlns:OpenUO_WPF_Fiddler_Converters="clr-namespace:OpenUO_WPF_Fiddler.Converters"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-	x:Class="OpenUO_WPF_Fiddler.MapCreationWindow"
+    xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit"
+    x:Class="OpenUO_WPF_Fiddler.MapCreationWindow"
 	x:Name="Window"
 	Title="MapCreationWindow"
 	Width="1024" Height="768">
@@ -46,7 +48,7 @@
 							<DataGridTextColumn Binding="{Binding Name}" Header="Name" />
 						</DataGrid.Columns>
 					</DataGrid>
-					<ScrollViewer/>
+					<ScrollViewer CanContentScroll="True" />
 				</Grid>
 			</TabItem>
 			<TabItem Header="Color Coasts" x:Name="TabColorCoast">
@@ -174,30 +176,30 @@
 			</TabItem>
 			<TabItem Header="Items Smooth" x:Name="TabItemsSmooth">
 				<Grid>
-					<DataGrid AutoGenerateColumns="False" Height="121" HorizontalAlignment="Left" ItemsSource="{Binding SmoothsAll.List}" Margin="6,6,0,0" x:Name="DataGridItemsSmooth" VerticalAlignment="Top" Width="584">
-						<DataGrid.Columns>
-							<DataGridTemplateColumn Header="Color From">
-								<DataGridTemplateColumn.CellTemplate>
+					<dg:DataGrid AutoGenerateColumns="False" Height="121" HorizontalAlignment="Left" ItemsSource="{Binding SmoothsAll.List}" Margin="6,6,0,0" x:Name="DataGridItemsSmooth" VerticalAlignment="Top" Width="584">
+						<dg:DataGrid.Columns>
+							<dg:DataGridTemplateColumn Header="Color From">
+								<dg:DataGridTemplateColumn.CellTemplate>
 									<DataTemplate>
 										<StackPanel>
 											<Rectangle Fill="{Binding ColorFrom, Converter={StaticResource Brushconv}}" Height="10" Stroke="Black" Width="20" />
 										</StackPanel>
 									</DataTemplate>
-								</DataGridTemplateColumn.CellTemplate>
-							</DataGridTemplateColumn>
-							<DataGridTextColumn Binding="{Binding ColorFrom}" Header="Color From" />
-							<DataGridTemplateColumn Header="Coast Color">
-								<DataGridTemplateColumn.CellTemplate>
+								</dg:DataGridTemplateColumn.CellTemplate>
+							</dg:DataGridTemplateColumn>
+							<dg:DataGridTextColumn Binding="{Binding ColorFrom}" Header="Color From" />
+							<dg:DataGridTemplateColumn Header="Coast Color">
+								<dg:DataGridTemplateColumn.CellTemplate>
 									<DataTemplate>
 										<StackPanel>
 											<Rectangle Fill="{Binding ColorTo, Converter={StaticResource Brushconv}}" Height="10" Stroke="Black" Width="20" />
 										</StackPanel>
 									</DataTemplate>
-								</DataGridTemplateColumn.CellTemplate>
-							</DataGridTemplateColumn>
-							<DataGridTextColumn Binding="{Binding ColorTo}" Header="Coast Color" />
-						</DataGrid.Columns>
-					</DataGrid>
+								</dg:DataGridTemplateColumn.CellTemplate>
+							</dg:DataGridTemplateColumn>
+							<dg:DataGridTextColumn Binding="{Binding ColorTo}" Header="Coast Color" />
+						</dg:DataGrid.Columns>
+					</dg:DataGrid>
 					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineNorth.List, ElementName=DataGridItemsSmooth}" Margin="10,202,0,0" x:Name="dataGrid13" VerticalAlignment="Top" Width="137" />
 					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineEast.List, ElementName=DataGridItemsSmooth}" Margin="156,202,0,0" x:Name="dataGrid14" VerticalAlignment="Top" Width="137" />
 					<DataGrid AutoGenerateColumns="True" Height="101" HorizontalAlignment="Left" ItemsSource="{Binding SelectedItem.LineWest.List, ElementName=DataGridItemsSmooth}" Margin="299,202,0,0" x:Name="dataGrid15" VerticalAlignment="Top" Width="146" />

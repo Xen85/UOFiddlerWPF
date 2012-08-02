@@ -10,10 +10,13 @@ namespace OpenUO.MapMaker.Elements.Items
 {
     [Serializable]
     [XmlInclude(typeof(ItemID))]
-    public class SmoothsAll
+    public class SmoothsAll : IContainerSet
     {
         public List<ItemsSmooth.ItemsSmooth> List { get; set; }
- 
+
+        [NonSerialized] private Dictionary<Color, ItemsSmooth.ItemsSmooth> _dictionarySmooth;
+        [NonSerialized] private Dictionary<Color, bool> _dictionaryColorTo; 
+
         public SmoothsAll()
         {
             List = new List<ItemsSmooth.ItemsSmooth>();
@@ -24,23 +27,46 @@ namespace OpenUO.MapMaker.Elements.Items
 
         public ItemsSmooth.ItemsSmooth FindFromByColor(Color color)
         {
-            return List.FirstOrDefault(smooth => smooth.ColorFrom == color);
+            ItemsSmooth.ItemsSmooth smooth;
+
+            _dictionarySmooth.TryGetValue(color, out smooth);
+
+            return smooth;
         }
 
-        public ItemsSmooth.ItemsSmooth FindToByColor(Color color)
-        {
-            return List.FirstOrDefault(smooth => smooth.ColorTo == color);
-        }
-
-        public IEnumerable<Color> AllColorsFrom()
-        {
-            return List.Select(Smooth => Smooth.ColorFrom);
-        }
         
-        public IEnumerable<Color> AllColorsTo()
+        public bool ContainsColorTo(Color color)
         {
-            return List.Select(smooth => smooth.ColorTo);
+            bool ret;
+            _dictionaryColorTo.TryGetValue(color, out ret);
+            return ret;
         }
+
         #endregion
+    
+        public void  InitializeSeaches()
+        {
+            _dictionarySmooth = new Dictionary<Color, ItemsSmooth.ItemsSmooth>();
+            _dictionaryColorTo = new Dictionary<Color, bool>();
+
+            foreach (ItemsSmooth.ItemsSmooth itemsSmooth in List)
+            {
+                try
+                {
+                    _dictionarySmooth.Add(itemsSmooth.ColorFrom, itemsSmooth);
+                }
+                catch (Exception)
+                {
+                }
+
+                try
+                {
+                    _dictionaryColorTo.Add(itemsSmooth.ColorTo,true);
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
     }
 }
