@@ -10,8 +10,9 @@
       <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/f:TilesCategorySDKModule.cs" caret="9705" fromTop="16" />
       <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/d:Components/d:MultiStruct/f:MultiTile.cs" caret="0" fromTop="0" />
       <File id="B52C11BF-8D10-4472-8FA0-92B25C8D5A25/d:Components/d:MultiStruct/f:MultiTileList.cs" caret="0" fromTop="0" />
-      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/f:MainWindow.xaml.cs" caret="0" fromTop="0" />
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="12921" fromTop="8" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/f:MainWindow.xaml" caret="0" fromTop="0" />
+      <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/f:MainWindow.xaml.cs" caret="1463" fromTop="16" />
     </RecentFiles>
     <RecentEdits>
       <File id="60913DEE-80C0-4DF0-B60A-CAD6433F46CD/d:MapMaker/f:MapCreationWindow.xaml" caret="25640" fromTop="8" />

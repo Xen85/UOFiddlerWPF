@@ -153,7 +153,11 @@ namespace OpenUO.MapMaker.MapMaking
             ////_Tmp.Initialize();
 
             _mapObjects = new MapObject[lenght];
-            _mapObjects.Initialize();
+
+            for (int i = 0; i < _mapObjects.Length; i++)
+            {
+                _mapObjects[i] = new MapObject();
+            }
             #endregion
 
             _X = x;
