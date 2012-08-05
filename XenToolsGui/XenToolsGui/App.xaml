@@ -2,9 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit"
-             StartupUri="MainWindow.xaml">
+             xmlns:XenTools_Converters="clr-namespace:XenToolsGui.Converters" StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
             <Setter Property="Width" Value="8"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -106,7 +106,7 @@
             </Setter>
         </Style>
 
-        
+
         <Style x:Key="GroupContainerStyle2" TargetType="{x:Type GroupItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -228,6 +228,55 @@
         <Style x:Key="RowHeaderStyle" TargetType="{x:Type dg:DataGridRowHeader}">
             <Setter Property="Background" Value="#A1A1A1"/>
         </Style>
+
+        <Style x:Key="TreeView" TargetType="{x:Type TreeView}">
+
+        </Style>
+        
+        
+        <dg:DataGrid x:Key="DataGridTiles" RowStyle="{StaticResource RowStyle}" ItemsSource="{Binding Path=Tiles}"/>
+            
+        
+        
+        
+        <TreeViewItem x:Key="DataTree">
+            <HierarchicalDataTemplate ItemsSource="{Binding Path=Categories}">
+                <StackPanel>
+                    <TreeView Name="Styles">
+                        <HierarchicalDataTemplate ItemsSource="{Binding Path=Styles}">
+                            <TreeViewItem>
+                                <HierarchicalDataTemplate ItemsSource="{Binding}">
+                                    <StackPanel>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeViewItem>
+                        </HierarchicalDataTemplate>
+                    </TreeView>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+            
+        </TreeViewItem>
+
+        <HierarchicalDataTemplate x:Key="StyleDataTree" ItemsSource="{Binding Path=Styles}">
+            <TreeViewItem>
+                <HierarchicalDataTemplate ItemsSource="{Binding}">
+                    <StackPanel>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeViewItem>
+        </HierarchicalDataTemplate>
+
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="3 0 3 0"/>
+        </Style>
+        
+        <Style x:Key="TextBlockBoldStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle}">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <XenTools_Converters:BitmapConverter x:Key="BitmapItemConverter" />
+        <XenTools_Converters:TextureConverter x:Key="TextureConverter"/>
+        <XenTools_Converters:ConverterColorToBrush x:Key="ColorConverter"/>
+        <XenTools_Converters:BitmapConverterLand x:Key="LandConverter"/>
 
     </Application.Resources>
 </Application>

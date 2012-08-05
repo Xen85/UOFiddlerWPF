@@ -38,7 +38,7 @@ namespace TilesInfo.Factories
                 var style = new TileStyle();
                 category.AddStyle(style);
                 style.Name = infos.Last();
-                style.Id = Int32.Parse(infos[1]);
+                style.Index = Int32.Parse(infos[1]);
                 for (int j = 3; j < typeNames.Length - 2; j++)
                 {
                     if (infos[j] != "0")

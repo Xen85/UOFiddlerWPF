@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="XenToolsGui.TileViewer.Types.SuperGridTree"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="{Binding Height,ElementName=DockPanelAnchestor}" d:DesignWidth="{Binding Width,ElementName=DockPanelAnchestor}">
+    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="DockPanelAnchestor">
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Stretch" DockPanel.Dock="Top"> 
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="StackPanelDataGridCategories">
+                <DataGrid AutoGenerateColumns="False" Name="DataGridCategories" ItemsSource="{Binding DataContext,ElementName=DockPanelAnchestor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" CanUserReorderColumns="True" CanUserSortColumns="True" CanUserResizeColumns="False" HorizontalAlignment="Stretch" SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Index" Binding="{Binding Index}"/>
+                        <DataGridTemplateColumn Header="Styles">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Expander Name="ExpanderForStyles">
+                                        <DockPanel Name="DockPanelForStyles">
+                                        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Top" Name="StackPanelForStyoles">
+                                            <DataGrid ItemsSource="{Binding Styles}" AutoGenerateColumns="False" Name="DataGridStyleTiles">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
+                                                    <DataGridTextColumn Binding="{Binding Index}" Header="Index"/>
+                                                    <DataGridTemplateColumn>
+                                                        <DataGridTemplateColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Expander Name="ExpanderForTiles">
+                                                                    <DockPanel VerticalAlignment="Stretch" Name="DockPanelForTiles" HorizontalAlignment="Stretch">
+                                                                    <StackPanel VerticalAlignment="Stretch" Name="StackPanelForTiles" HorizontalAlignment="Stretch" DockPanel.Dock="Top"> 
+                                                                        <DataGrid ItemsSource="{Binding Tiles}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserResizeColumns="False" Name="DataGridTiles">
+                                                                            <DataGrid.Columns>
+                                                                                <DataGridTemplateColumn>
+                                                                                    <DataGridTemplateColumn.CellTemplate>
+                                                                                        <DataTemplate>
+                                                                                            <StackPanel Name="StackPanelForImageTile">
+                                                                                                <Image Source="{Binding Id,Converter={StaticResource BitmapItemConverter}}" Height="Auto" Width="Auto" Stretch="None"/>
+                                                                                            </StackPanel>
+                                                                                        </DataTemplate>
+                                                                                    </DataGridTemplateColumn.CellTemplate>
+                                                                                </DataGridTemplateColumn>
+                                                                            </DataGrid.Columns>
+                                                                        </DataGrid>
+                                                                    </StackPanel>
+                                                                    </DockPanel>
+                                                                </Expander>
+                                                            </DataTemplate>
+                                                        </DataGridTemplateColumn.CellTemplate>
+                                                    </DataGridTemplateColumn>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+                                        </DockPanel>
+                                    </Expander>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

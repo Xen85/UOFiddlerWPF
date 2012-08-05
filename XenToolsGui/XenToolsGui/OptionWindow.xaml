@@ -1,0 +1,14 @@
+﻿<Window x:Class="XenToolsGui.OptionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OptionWindow" Height="300" Width="300">
+    <Grid>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="126,12,0,0" Name="TextBoxInstallFolder" VerticalAlignment="Top" Width="152" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="Install Folder" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,70,0,0" Name="textBlock2" Text="Save Folder" VerticalAlignment="Top" Width="96" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="126,67,0,0" Name="TextBoxSaveFolder" VerticalAlignment="Top" Width="152" />
+        <Button Content="Apply" Height="23" HorizontalAlignment="Left" Margin="191,238,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Button Content="Browse Folder" Height="23" HorizontalAlignment="Left" Margin="181,38,0,0" Name="buttonInstallFolder" VerticalAlignment="Top" Width="85" Click="buttonInstallFolder_Click" />
+        <Button Content="Browse Folder" Height="23" HorizontalAlignment="Left" Margin="181,96,0,0" Name="buttonSaveFolder" VerticalAlignment="Top" Width="85" Click="buttonSaveFolder_Click" />
+    </Grid>
+</Window>

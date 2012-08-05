@@ -19,7 +19,7 @@ namespace TilesInfo.Components
         #endregion
 
         [DataMember]
-        public int Id { get; set; }
+        public int Index { get; set; }
         
         [DataMember]
         public string Name { get { return _name; } set { _name = value ?? ""; } }
@@ -35,14 +35,14 @@ namespace TilesInfo.Components
         public TileStyle()
         {
             Name = "";
-            Id = -1;
+            Index = -1;
             Tiles= new List<Tile>();
         }
 
         public TileStyle(int number)
             :this()
         {
-            Id = number;
+            Index = number;
         }
 
         public Tile FindTile(int id)

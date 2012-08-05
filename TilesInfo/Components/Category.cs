@@ -15,19 +15,19 @@ namespace TilesInfo.Components
         public TileCategory()
         {
             Name = "";
-            Id = -1;
+            Index = -1;
             Styles = new List<TileStyle>();
         }
 
         public TileCategory(int id)
             :this()
         {
-            Id = id;
+            Index = id;
         }
 
         public Tile FindTile(int id)
         {
-            return Styles.Select(tileStyle => tileStyle.FindTile(id)).Where(tile => tile != null).FirstOrDefault();
+            return Styles.Select(tileStyle => tileStyle.FindTile(id)).FirstOrDefault(tile => tile != null);
         }
 
         public void AddStyle(TileStyle style)
@@ -45,11 +45,7 @@ namespace TilesInfo.Components
         public IEnumerable<TileRoof> FindByPosition(PositionRoof pos)
         {
             var list = new List<TileRoof>();
-            foreach (var tileStyle in Styles)
-            {
-                list.Union(tileStyle.FindTileByPosition(pos));
-            }
-            return list;
+            return Styles.Aggregate(list, (current, tileStyle) => current.Union(tileStyle.FindTileByPosition(pos)).ToList());
         }
 
         public IEnumerable<Tile> AllTiles()
@@ -60,11 +56,11 @@ namespace TilesInfo.Components
 
         public TileStyle FindStyleByName(string name)
         {
-            return Styles.Where(tileStyle => name == tileStyle.Name).FirstOrDefault();
+            return Styles.FirstOrDefault(tileStyle => name == tileStyle.Name);
         }
 
         [DataMember]
-        public int Id { get; set; }
+        public int Index { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]
