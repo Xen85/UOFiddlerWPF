@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Win32;
 using TilesInfo.Components;
 using XenToolsGui.TileViewer.Types;
 
@@ -145,32 +148,164 @@ namespace XenToolsGui
         
         private void AddTiles_Click_1(object sender, RoutedEventArgs e)
         {
-            var  foundList = Globals.Helpers.FindElementsOfType(SuperGridTiles.DataGridCategories,typeof(DataGrid));
+            var media = SuperGridTiles.DataGridCategories as System.Windows.Media.Visual;
+            if (media == null)
+                return;
+            var foundList = Globals.Helpers.FindElementsOfType(media, typeof(DataGrid));
+            if (foundList == null)
+                return;
+
+            List<DataGrid> dataList = foundList.OfType<DataGrid>().Select(frameworkElement => frameworkElement).ToList();
+            media = null;
+            if (dataList.Count == 0)
+                return;
+            TileStyle style = null;
+            var found = false;
+            foreach (var dataGrid in dataList)
+            {
+                foreach (TileStyle obj in dataGrid.SelectedItems.OfType<TileStyle>())
+                {
+                    style = obj as TileStyle;
+                    found = true;
+                }
+                if(found)
+                    break;
+            }
+            if (style == null)
+                return;
+            foreach (var tile in Globals.Globals.SdkTiles.TmpTileList)
+            {
+                style.AddTile(tile);
+            }
+            Globals.Globals.SdkTiles.TmpTileList.Clear();
+            AllGridRefresh();
+        }
+        
+        private void AddTileTmpClick(object sender, RoutedEventArgs e)
+        {
+            var media = SuperGridLosedTiles.DataGridCategories as System.Windows.Media.Visual;
+            if (media == null)
+                return;
+            var foundList = Globals.Helpers.FindElementsOfType(media, typeof(DataGrid));
             if (foundList == null)
                 return;
             List<DataGrid> dataList = foundList.OfType<DataGrid>().Select(frameworkElement => frameworkElement as DataGrid).ToList();
             foreach (var frameworkElement in dataList)
             {
                 var list = frameworkElement.SelectedItems;
-                foreach (var VARIABLE in list)
+                foreach (Tile VARIABLE in list.OfType<Tile>())
                 {
-                    if (VARIABLE is Tile)
-                        Globals.Globals.SdkTiles.TmpTileList.Add((Tile)VARIABLE);
+                    Globals.Globals.SdkTiles.TmpTileList.Add(VARIABLE);
                 }
                 frameworkElement.SelectedItems.Clear();
             }
-           
+
 
             if (dataGridTmpTiles.ItemsSource != Globals.Globals.SdkTiles.TmpTileList)
-            dataGridTmpTiles.ItemsSource = Globals.Globals.SdkTiles.TmpTileList;
-            dataGridTmpTiles.Items.Refresh();
+                dataGridTmpTiles.ItemsSource = Globals.Globals.SdkTiles.TmpTileList;
+            AllGridRefresh();
+        }
+
+        private void AllGridRefresh()
+        {
+            var foundList = Globals.Helpers.FindElementsOfType(this, typeof(DataGrid));
+            List<DataGrid> dataList = foundList.OfType<DataGrid>().Select(frameworkElement => frameworkElement).ToList();
+            foreach (var dataGrid in dataList)
+            {
+                try
+                {
+                    dataGrid.Items.Refresh();
+                }
+                catch(Exception)
+                {
+                    
+                }
+            }
+        }
+
+        private void ButtonAddStyles_Click(object sender, RoutedEventArgs e)
+        {
+            var category = SuperGridTiles.DataGridCategories.SelectedItem as TileCategory;
+            foreach (var style in Globals.Globals.SdkTiles.TmpStyleList)
+            {
+                category.AddStyle(style);
+            }
+
+            Globals.Globals.SdkTiles.TmpStyleList.Clear();
+            AllGridRefresh();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            var media = SuperGridLosedTiles.DataGridCategories as System.Windows.Media.Visual;
+            if (media == null)
+                return;
+            var foundList = Globals.Helpers.FindElementsOfType(media, typeof(DataGrid));
+            if (foundList == null)
+                return;
+            List<DataGrid> dataList = foundList.OfType<DataGrid>().Select(frameworkElement => frameworkElement as DataGrid).ToList();
+            foreach (var frameworkElement in dataList)
+            {
+                var list = frameworkElement.SelectedItems;
+                foreach (TileStyle VARIABLE in list.OfType<TileStyle>())
+                {
+                    Globals.Globals.SdkTiles.TmpStyleList.Add(VARIABLE);
+                }
+                frameworkElement.SelectedItems.Clear();
+            }
+
+
+            if (dataGridTmpStyles.ItemsSource != Globals.Globals.SdkTiles.TmpStyleList)
+                dataGridTmpStyles.ItemsSource = Globals.Globals.SdkTiles.TmpStyleList;
+            AllGridRefresh();
         }
 
         #endregion
 
-        private void button1_Click_1(object sender, RoutedEventArgs e)
+        #region Main Window buttons
+        
+        private void buttonSaveTileData_Click(object sender, RoutedEventArgs e)
         {
 
+            if(!string.IsNullOrEmpty(Globals.Globals.SaveDirLocation))
+                try
+                {
+                    Globals.Globals.SdkTiles.Save(Globals.Globals.SaveDirLocation);
+                }
+                catch(Exception exception)
+                {
+                    MessageBox.Show(exception.Message.ToString(), "Error in saving file",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            else
+            {
+                MessageBox.Show("you have to enter a save folder in options menu", "Error Save Directory doesn't exist",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void buttonLoadTileData_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "Binary files *.bin|*.bin";
+            dlg.DefaultExt = "*.bin";
+            var res= dlg.ShowDialog();
+            if(res == true)
+            if (!string.IsNullOrEmpty(dlg.FileName))
+                try
+                {
+                    Globals.Globals.SdkTiles.Load(dlg.FileName);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message.ToString(CultureInfo.InstalledUICulture), "FileLoading Error",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            else
+            {
+                MessageBox.Show("you have to insert a File", "File Loading Error",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         #endregion
@@ -179,13 +314,11 @@ namespace XenToolsGui
 
 
 
-
-
-
-
-
+        #endregion
 
     }
+
+
     public enum Latest
     {
         None,

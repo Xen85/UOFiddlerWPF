@@ -1,8 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 using OpenUO.Core.Patterns;
 using OpenUO.MapMaker;
 using OpenUO.Ultima;
 using TilesInfo;
+using System.IO;
 
 namespace XenToolsGui.Globals
 {
@@ -10,13 +16,13 @@ namespace XenToolsGui.Globals
     {
         private static InstallLocation _install;
 
-        private static string _InstallDir; 
+        private static string _InstallDir =""; 
         //TODO Event for reinit
         private static bool innerInit;
         public static IoCContainer Container; 
        
         public static TilesCategorySDKModule SdkTiles;
-
+        private static List<string> List; 
         public static string Installdirectory { 
             get
                 {
@@ -37,13 +43,13 @@ namespace XenToolsGui.Globals
 
         public static MakeMapSDK MapMaperSdk;
 
-        public static string SaveTileFileLocation;
+        public static string SaveTileFileLocation = "";
 
-        public static string SaveDirLocation;
+        public static string SaveDirLocation ="";
 
-        public static string ScriptFolderLocation;
+        public static string ScriptFolderLocation="";
 
-        public static string LoadDirLocation;
+        public static string LoadDirLocation ="";
 
         public static void Init()
         {
@@ -70,5 +76,38 @@ namespace XenToolsGui.Globals
             innerInit = true;
         }
         
+        public static void SaveOptions()
+        {
+            List = new List<string>();
+
+            List.Add(SaveTileFileLocation);
+            List.Add(SaveDirLocation);
+            List.Add(Installdirectory);
+
+            MemoryStream mem = new MemoryStream();   
+            XmlSerializer serializer = new XmlSerializer(typeof(List<String>));
+            XmlWriter xmlWriter = new XmlTextWriter(mem,new UTF8Encoding());
+            serializer.Serialize(mem,List);
+
+            FileStream fileStream = new FileStream(SaveDirLocation+@"\config.xml",FileMode.Create);
+            mem.WriteTo(fileStream);
+            mem.Close();
+            fileStream.Close();
+        }
+
+        public static void LoadOptions(string file)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<String>));
+            
+            using(FileStream fs = new FileStream(file,FileMode.Open))
+            {
+                XmlReader xmlReader = new XmlTextReader(fs);
+                List = (List<String>)serializer.Deserialize(xmlReader);
+            }
+            
+            SaveTileFileLocation = List[0];
+            SaveDirLocation = List[1];
+            Installdirectory = List[2];
+        }
     }
 }
