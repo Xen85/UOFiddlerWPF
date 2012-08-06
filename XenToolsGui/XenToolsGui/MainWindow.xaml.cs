@@ -23,6 +23,7 @@ namespace XenToolsGui
         {
             InitializeComponent();
             Globals.Globals.Init();
+            DataContext = Globals.Globals.MapMaperSdk;
         }
         #region options
         private void FileItemSelectOptions_Click(object sender, RoutedEventArgs e)
@@ -310,6 +311,18 @@ namespace XenToolsGui
 
         #endregion
 
+        #region Make Map
+        
+        #region main Buttons
+
+        private void ButtonLoadScript_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        #endregion
+        
+        #endregion
 
 
 

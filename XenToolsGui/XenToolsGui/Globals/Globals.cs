@@ -16,24 +16,26 @@ namespace XenToolsGui.Globals
     {
         private static InstallLocation _install;
 
-        private static string _InstallDir =""; 
+        private static string _InstallDir = "";
         //TODO Event for reinit
         private static bool innerInit;
-        public static IoCContainer Container; 
-       
+        public static IoCContainer Container;
+
         public static TilesCategorySDKModule SdkTiles;
-        private static List<string> List; 
-        public static string Installdirectory { 
+        private static List<string> List;
+
+        public static string Installdirectory
+        {
             get
-                {
-                    return _InstallDir;
-                } 
+            {
+                return _InstallDir;
+            }
             set
-                {
-                    _install = new InstallLocation(value);
-                    _InstallDir = value;
-                }
-        } 
+            {
+                _install = new InstallLocation(value);
+                _InstallDir = value;
+            }
+        }
 
         public static InstallLocation InstallLocation { get { return _install; } set { _install = value; Init(); } }
 
@@ -45,17 +47,17 @@ namespace XenToolsGui.Globals
 
         public static string SaveTileFileLocation = "";
 
-        public static string SaveDirLocation ="";
+        public static string SaveDirLocation = "";
 
-        public static string ScriptFolderLocation="";
+        public static string ScriptFolderLocation = "";
 
-        public static string LoadDirLocation ="";
+        public static string LoadDirLocation = "";
 
         public static void Init()
         {
             Container = new IoCContainer();
-            if(InstallLocation==null)
-            InstallLocation = InstallationLocator.Locate().FirstOrDefault();
+            if (InstallLocation == null)
+                InstallLocation = InstallationLocator.Locate().FirstOrDefault();
             if (InstallLocation != null)
             {
                 SdkTiles = new TilesCategorySDKModule(InstallLocation);
@@ -75,7 +77,7 @@ namespace XenToolsGui.Globals
             TexmapFactory = new TexmapFactory(InstallLocation, Container);
             innerInit = true;
         }
-        
+
         public static void SaveOptions()
         {
             List = new List<string>();
@@ -84,12 +86,12 @@ namespace XenToolsGui.Globals
             List.Add(SaveDirLocation);
             List.Add(Installdirectory);
 
-            MemoryStream mem = new MemoryStream();   
+            MemoryStream mem = new MemoryStream();
             XmlSerializer serializer = new XmlSerializer(typeof(List<String>));
-            XmlWriter xmlWriter = new XmlTextWriter(mem,new UTF8Encoding());
-            serializer.Serialize(mem,List);
+            XmlWriter xmlWriter = new XmlTextWriter(mem, new UTF8Encoding());
+            serializer.Serialize(mem, List);
 
-            FileStream fileStream = new FileStream(SaveDirLocation+@"\config.xml",FileMode.Create);
+            FileStream fileStream = new FileStream(SaveDirLocation + @"\config.xml", FileMode.Create);
             mem.WriteTo(fileStream);
             mem.Close();
             fileStream.Close();
@@ -98,13 +100,13 @@ namespace XenToolsGui.Globals
         public static void LoadOptions(string file)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<String>));
-            
-            using(FileStream fs = new FileStream(file,FileMode.Open))
+
+            using (FileStream fs = new FileStream(file, FileMode.Open))
             {
                 XmlReader xmlReader = new XmlTextReader(fs);
                 List = (List<String>)serializer.Deserialize(xmlReader);
             }
-            
+
             SaveTileFileLocation = List[0];
             SaveDirLocation = List[1];
             Installdirectory = List[2];

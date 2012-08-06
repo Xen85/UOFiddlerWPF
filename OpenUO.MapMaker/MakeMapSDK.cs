@@ -22,7 +22,7 @@ namespace OpenUO.MapMaker
     public class MakeMapSDK
     {
         #region props
-        #region Text
+        #region Datas
 
         public ColorAreas ColorArea { get; set; }
 
